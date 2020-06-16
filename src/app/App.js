@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "../components/views/styles/meals/MealView.css";
 import SearchBar from "../components/containers/meals/SearchBar"
 import { debounce } from "lodash";
 import MealContainer from "../components/containers/meals/MealContainer"
@@ -7,7 +8,7 @@ import axios from "axios"
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiID = process.env.REACT_APP_API_ID;
-const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey+"&from=0&to=3&calories=591-722&mealtype=lunch"
+const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey
 
 console.log(mealsHome)
 
