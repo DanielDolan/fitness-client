@@ -7,17 +7,19 @@ import { AllWorkoutsView } from '../views';
 // Smart container;
 class AllWorkoutsContainer extends Component {
   componentDidMount() {
+    console.log(this.props);
     this.props.fetchAllWorkouts();
   }
 
   render() {
-    return <AllWorkoutsView allWorkouts={this.props.allWorkouts} />
+    return <AllWorkoutsView allWorkouts={this.props.allWorkouts} hello={this.props.hello} />
   }
 }
 
 // Map state to props;
 const mapState = state => {
   return {
+    hello: "hello world!!!",
     allWorkouts: state.allWorkouts
   }
 }
