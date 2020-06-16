@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import SearchBar from "../components/containers/meals/SearchBar"
 import { debounce } from "lodash";
-import request from "superagent";
 import MealContainer from "../components/containers/meals/MealContainer"
 import axios from "axios"
 
@@ -23,10 +22,7 @@ class App extends Component {
     this.handleTermChange = this.handleTermChange.bind(this);
   }
   componentDidMount() {
-    axios.get(mealsHome)
-    .then((result) => {
-      //console.log(result.hits[0].recipe.healthLabels)
-      console.log(result)
+    axios.get(mealsHome).then((result) => {
       this.setState({ meals: result.data.hits});})
   }
 
@@ -34,15 +30,15 @@ class App extends Component {
     const urlString = `https://api.edamam.com/search?q=${searchTerm.replace(
       /\s/g,
       "+"
-    )}&app_id=${apiID}&api_key=${apiKey}`;
+    )}&app_id=${apiID}&app_key=${apiKey}`;
 
     if (searchTerm.length !== 0) {
       
-       request.get(urlString, (result) => {
+       axios.get(urlString).then((result) => {
          this.setState({ meals: result.data.hits })
        });
      } else {
-       request.get(mealsHome, (result) => {
+       axios.get(mealsHome).then((result) => {
          this.setState({ meals: result.data.hits })
        });
      }

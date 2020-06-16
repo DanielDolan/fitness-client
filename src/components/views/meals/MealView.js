@@ -10,7 +10,7 @@ const MealView = (props) => {
               objectFit: "fit",
               display: "block",
               //boxShadow: "0 10px 10px rgba(0,0,0,.7)",
-            }}/>
+            }} alt="picture of food"/>
     </div>
   )
 };
