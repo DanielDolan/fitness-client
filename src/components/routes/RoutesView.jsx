@@ -9,7 +9,7 @@ import {
 const RoutesView = () => {
   return (
     <Switch>
-      {/* <Route exact path="/" component={Home} /> */}
+      <Route exact path="/" component={Home} />
       <Route exact path="/workouts" component={AllWorkoutsContainer} />
       <Route exact path="/workouts/:id" component={WorkoutContainer} />
     </Switch>

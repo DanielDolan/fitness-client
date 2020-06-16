@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchWorkoutThunk } from "../../thunks";
-
-import { WorkoutView } from "../views";
+import { fetchWorkoutThunk } from "../../../thunks";
+import { WorkoutView } from "../../views";
 
 class WorkoutContainer extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   componentDidMount() {
     this.props.fetchWorkout(this.props.match.params.id);
   }

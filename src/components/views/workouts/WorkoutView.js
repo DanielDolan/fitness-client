@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/WorkoutView.css";
+import "../styles/WorkoutView.css";
 
 const WorkoutView = (props) => {
   return (

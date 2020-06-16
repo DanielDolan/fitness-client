@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchAllWorkoutsThunk } from '../../thunks';
-import { AllWorkoutsView } from '../views';
+import { fetchAllWorkoutsThunk } from '../../../thunks';
+import { AllWorkoutsView } from '../../views';
 
 // Smart container;
 class AllWorkoutsContainer extends Component {
@@ -12,14 +12,13 @@ class AllWorkoutsContainer extends Component {
   }
 
   render() {
-    return <AllWorkoutsView allWorkouts={this.props.allWorkouts} hello={this.props.hello} />
+    return <AllWorkoutsView allWorkouts={this.props.allWorkouts} />
   }
 }
 
 // Map state to props;
 const mapState = state => {
   return {
-    hello: "hello world!!!",
     allWorkouts: state.allWorkouts
   }
 }
