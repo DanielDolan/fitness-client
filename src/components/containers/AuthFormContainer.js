@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { auth } from "../../thunks";
-import { SignUpView } from "../views";
+import { AuthFormView } from "../views";
 
 // Smart container;
-class SignUpContainer extends Component {
+class AuthFormContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -25,7 +25,7 @@ class SignUpContainer extends Component {
 
   render() {
     return (
-      <SignUpView
+      <AuthFormView
         name={this.props.name}
         displayName={this.props.displayName}
         error={this.props.error}
@@ -67,5 +67,5 @@ const mapDispatch = dispatch => {
   }
 };
 
-export const Login = connect(mapLogin, mapDispatch)(SignUpContainer);
-export const Signup = connect(mapSignup, mapDispatch)(SignUpContainer);
+export const Login = connect(mapLogin, mapDispatch)(AuthFormContainer);
+export const Signup = connect(mapSignup, mapDispatch)(AuthFormContainer);
