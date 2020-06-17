@@ -1,12 +1,27 @@
 .all-workouts {
-  background-color: #282c34;
-  min-height: 100vh;
-  /* display: flex; */
-  /* flex-direction: column; */
-  align-items: left;
-  justify-content: left;
-  /* font-size: calc(10px + 2vmin); */
-  color: white;
-  padding: 20px;
+  box-shadow: 2px 2px 4px 0 #ccc;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 0 1.5em;
+  padding: 1em;
+} 
+
+.all-workouts img {
+  width: 100%;
 }
 
+.workouts-container {
+  column-gap: 1.5em;
+  font-size: .85em;
+  margin: 1.5em 1.5em; 
+  padding: 0;
+}
+
+input {
+  display: block;
+  font-size: 22px;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
