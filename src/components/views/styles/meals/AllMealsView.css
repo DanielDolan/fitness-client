@@ -1,27 +1,31 @@
 .meal-view {
-    box-shadow: 2px 2px 4px 0 #ccc;
-    box-sizing: border-box;
-    display: inline-block;
-    margin: 0 0 1.5em;
-    padding: 1em;
-  } 
+  box-shadow: 2px 2px 4px 0 #ccc;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 0 1.5em;
+  padding: 1em;
+} 
   
-  .meal-view img {
-    width: 100%;
-  }
+.meal-view img {
+  width: 100%;
+}
+
+.meal-view h3 {
+  font-size: 1vw;
+}
   
-  .meal-container {
-    column-gap: 1.5em;
-    font-size: .85em;
-    margin: 1.5em 1.5em; 
-    padding: 0;
-  }
+.meal-container {
+  column-gap: 1.5em;
+  font-size: .85em;
+  margin: 1.5em 1.5em; 
+  padding: 0;
+}
   
-  input {
-    display: block;
-    font-size: 22px;
-    height: 50px;
-    margin: 0 auto;
-    text-align: center;
-    width: 50%;
-  }
+input {
+  display: block;
+  font-size: 22px;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
