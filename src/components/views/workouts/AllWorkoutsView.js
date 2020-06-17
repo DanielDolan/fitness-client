@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/AllWorkoutsView.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { DropdownButton } from 'reactstrap';
@@ -34,12 +33,20 @@ const AllWorkoutsView = props => {
           <Link to={`/workouts/${workout.id}`}>
             <h1>{workout.name}</h1>
           </Link>
-          <img src={workout.imageUrl} width="200px" alt={workout.name} />
+          <img src={workout.imageUrl} style={{
+          width: "300px",
+          height: "300px",
+          objectFit: "fit",
+          display: "block",
+          boxShadow: "0 10px 10px rgba(0,0,0,.7)",
+          padding: "5px",
+           }} alt={workout.name} />
+
           <p>{workout.muscleGroup}</p>
           <p>{workout.description}</p>
 
-          {/* add to profile button */}
-          {/* remove from profile button */}
+          <button>Add</button>
+          <button>Delete</button>
         </div>
       ))}
     </div>
