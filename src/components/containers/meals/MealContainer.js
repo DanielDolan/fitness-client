@@ -1,5 +1,5 @@
 import React from 'react';
-import MealItem from "../../views/meals/MealView"
+import MealItem from "../../views/meals/AllMealsView"
 
 const MealContainer = (props) => {
   const mealItems = props.meals.map((meal,index) => {
