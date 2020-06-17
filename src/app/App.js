@@ -5,7 +5,6 @@ import SearchBar from "../components/containers/meals/SearchBar"
 import { debounce } from "lodash";
 import MealContainer from "../components/containers/meals/MealContainer"
 import axios from "axios"
-import RoutesContainer from "../components/routes/RoutesContainer";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiID = process.env.REACT_APP_API_ID;
@@ -52,7 +51,6 @@ class App extends Component {
       <div>
         <div className="App-header">
           <h2>Meal Search</h2>
-          <RoutesContainer />
         </div>
         <SearchBar
           style={{

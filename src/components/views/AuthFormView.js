@@ -13,14 +13,16 @@ const AuthFormView = props => {
       // age,
       // birthday,
       name,
+      displayName,
+      userEmail,
       handleSubmit, 
       error, 
       handleChange, 
-      isSigned } = props;
+      isLoggedIn } = props;
   
     return (
       <div>
-        {isSigned ? `The current logged in user is: ${userEmail}` : ""}
+        {isLoggedIn ? `The current logged in user is: ${userEmail}` : ""}
         <form onSubmit={handleSubmit} name={name}>
           <div>
             <label htmlFor="email">
