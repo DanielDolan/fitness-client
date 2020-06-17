@@ -2,14 +2,16 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 
-const AllMealsView = (props) => {
-  console.log(props.meal)
+const AllMealView = (props) => {
+  //console.log("props meal recipe" , props.meal.recipe)
+  console.log( "props meal ", props.meal)
   return (
     <div className="meal-view">
-      {/* <Link to={`/meals/${meal.recipe.id}`}
+    
+      <Link to={`/meals/${props.meal.id}`}
       >
             <h1>{props.meal.label}</h1>
-            </Link> */}
+            </Link>
 
        <h3>{props.meal.label}</h3>
        <p>Total Calories: {props.meal.calories}</p>
@@ -23,8 +25,9 @@ const AllMealsView = (props) => {
             }} alt="picture of food"/>
             <button>Add</button>
             <button>Delete</button>
+              
     </div>
   )
 };
 
-export default AllMealsView;
+export default AllMealView;

@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 
 // Action Types
 const FETCH_WORKOUT = "FETCH_WORKOUT";

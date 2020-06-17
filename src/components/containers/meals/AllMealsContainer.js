@@ -10,6 +10,8 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const apiID = process.env.REACT_APP_API_ID;
 const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey
 
+console.log(mealsHome)
+
 class AllMealsContainer extends Component {
   constructor(props) {
     super(props);
