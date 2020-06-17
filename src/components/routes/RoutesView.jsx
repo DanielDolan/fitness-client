@@ -4,6 +4,7 @@ import {
   Home,
   AllWorkoutsContainer,
   WorkoutContainer,
+  AuthFormContainer
 } from "../containers";
 import AllMealsContainer from "../containers/meals/AllMealsContainer"
 
@@ -14,6 +15,7 @@ const RoutesView = () => {
       <Route exact path="/workouts" component={AllWorkoutsContainer} />
       <Route exact path="/workouts/:id" component={WorkoutContainer} />
       <Route exact path="/meals" component={AllMealsContainer} />
+      <Route exact path="/auth" component={AuthFormContainer} />
       {/* <Route exact path="/meals/:id" component={MealContainer} /> */}
     </Switch>
   );

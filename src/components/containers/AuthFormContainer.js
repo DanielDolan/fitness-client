@@ -67,5 +67,6 @@ const mapDispatch = dispatch => {
   }
 };
 
-export const Login = connect(mapLogin, mapDispatch)(AuthFormContainer);
-export const Signup = connect(mapSignup, mapDispatch)(AuthFormContainer);
+// export const Login = connect(mapLogin, mapDispatch)(AuthFormContainer);
+// export const Signup = connect(mapSignup, mapDispatch)(AuthFormContainer);
+export default AuthFormContainer;
