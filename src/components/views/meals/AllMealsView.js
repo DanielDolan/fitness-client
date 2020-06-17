@@ -1,34 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
 import { Link } from "react-router-dom";
-import "../styles/meals/MealView.css";
 
-const AllMealsView = props => {
-  if (!props.allMeals.length) {
-    return <div className="all-meals">There are no meals.</div>;
-  }
 
+const AllMealsView = (props) => {
+  console.log(props.meal)
   return (
-    <>
+    <div className="meal-view">
+      {/* <Link to={`/meals/${meal.recipe.id}`}
+      >
+            <h1>{props.meal.label}</h1>
+            </Link> */}
 
-    <div className="all-meals">
-      {props.allMeals.map(meal => (
-        <div key={meal.id}>
-          <Link to={`/meals/${meal.id}`}>
-            <h1>{meal.label}</h1>
-          </Link>
-          <img src={meal.imageUrl} width="200px" alt={meal.label} />
-
-        </div>
-      ))}
+       <h3>{props.meal.label}</h3>
+       <p>Total Calories: {props.meal.calories}</p>
+      <img src={props.meal.image} style={{
+              width: "300px",
+              height: "300px",
+              objectFit: "fit",
+              display: "block",
+              boxShadow: "0 10px 10px rgba(0,0,0,.7)",
+              padding: "5px",
+            }} alt="picture of food"/>
+            <button>Add</button>
+            <button>Delete</button>
     </div>
-
-    </>
-  );
-};
-
-AllMealsView.propTypes = {
-  allMeals: PropTypes.array.isRequired
+  )
 };
 
 export default AllMealsView;
