@@ -51,16 +51,16 @@ const mapLogin = state => {
   };
 };
 
-// // Map state to props;
-// const mapSignup = state => {
-//   return {
-//     name: "signup",
-//     displayName: "Sign Up",
-//     error: state.user.error,
-//     isLoggedIn: !!state.user.id,
-//     userEmail: state.user.email
-//   };
-// };
+// Map state to props;
+const mapSignup = state => {
+  return {
+    name: "signup",
+    displayName: "Sign Up",
+    error: state.user.error,
+    isLoggedIn: !!state.user.id,
+    userEmail: state.user.email
+  };
+};
 
 // Map dispatch to props;
 const mapDispatch = dispatch => {
@@ -69,6 +69,5 @@ const mapDispatch = dispatch => {
   }
 };
 
-// export const Login = connect(mapLogin, mapDispatch)(AuthFormContainer);
-// export const Signup = connect(mapSignup, mapDispatch)(AuthFormContainer);
-export default connect(mapLogin, mapDispatch)(AuthFormContainer);
+export const Login = connect(mapLogin, mapDispatch)(AuthFormContainer);
+export const Signup = connect(mapSignup, mapDispatch)(AuthFormContainer);
