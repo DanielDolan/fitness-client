@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 
-const MealView = (props) => {
+const AllMealsView = (props) => {
   console.log(props.meal)
   return (
     <div className="meal-view">
@@ -27,4 +27,4 @@ const MealView = (props) => {
   )
 };
 
-export default MealView;
+export default AllMealsView;

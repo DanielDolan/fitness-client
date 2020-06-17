@@ -2,3 +2,5 @@
 export { default as Home } from "./Home";
 export { default as AllWorkoutsContainer } from './workouts/AllWorkoutsContainer';
 export { default as WorkoutContainer } from './workouts/WorkoutContainer';
+export { default as AllMealsContainer } from './meals/AllMealsContainer';
+export { default as MealContainer } from './meals/MealContainer';
