@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 
 // Action Types
 const FETCH_MEAL = "FETCH_MEAL";
@@ -40,14 +40,11 @@ const fetchMeal = (meal) => {
 
 // Thunk Creators
 export const fetchMealThunk = (id) => (dispatch) => {
-  // return axios
-  //   .get(`/api/workouts/${id}`)
-  //   .then((res) => res.data)
-  //   .then((workout) => dispatch(fetchWorkout(workout)))
-  //   .catch((err) => console.log(err));
-
-  const meal = allMeals.find((c) => c.id === id);
-  return dispatch(fetchMeal(meal));
+  return axios
+    .get(`/api/meals/${id}`)
+    .then((res) => res.data)
+    .then((workout) => dispatch(fetchMeal(workout)))
+    .catch((err) => console.log(err));
 };
 
 // Reducer

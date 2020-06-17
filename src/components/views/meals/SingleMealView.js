@@ -5,7 +5,7 @@ const SingleMealView = (props) => {
   return (
     <div className="meal">
       <img src={props.meal.image} alt={props.label} />
-      <h1>name: {props.meal.label}</h1>
+      <h1>Name: {props.meal.label}</h1>
       {/* <p>targeted muscle group: {props.meal.muscleGroup}</p>
       <p>description: {props.meal.description}</p>
       <p>recommended sets: {props.meal.recSets}</p> */}
