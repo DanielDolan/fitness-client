@@ -2,3 +2,4 @@
 export { default as AllWorkoutsView } from "./workouts/AllWorkoutsView";
 export { default as WorkoutView } from "./workouts/WorkoutView";
 export { default as AllMealsView } from "./meals/AllMealsView"
+export { default as NavBarView } from "./NavBarView";
