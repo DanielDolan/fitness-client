@@ -4,23 +4,22 @@ import axios from 'axios';
 const FETCH_ALL_WORKOUTS = "FETCH_ALL_WORKOUTS";
 
 // test data
-const allWorkouts = [
-  {
-    id: "123",
-    name: "test workout name 1",
-    imageUrl: "https://via.placeholder.com/480x240?text=Placeholder",
-    muscleGroup: "test muscle group 1",
-    description: "test workout description 1",
-  },
-  {
-    id: "456",
-    name: "test workout name 2",
-    imageUrl: "https://via.placeholder.com/480x240?text=Placeholder",
-    muscleGroup: "test muscle group 2",
-    description: "test workout description 2",
-  },
-];
-
+// const allWorkouts = [
+//   {
+//     id: "123",
+//     name: "test workout name 1",
+//     imageUrl: "https://via.placeholder.com/480x240?text=Placeholder",
+//     muscleGroup: "test muscle group 1",
+//     description: "test workout description 1",
+//   },
+//   {
+//     id: "456",
+//     name: "test workout name 2",
+//     imageUrl: "https://via.placeholder.com/480x240?text=Placeholder",
+//     muscleGroup: "test muscle group 2",
+//     description: "test workout description 2",
+//   },
+// ];
 
 // ACTION CREATORS;
 const fetchAllWorkouts = workouts => {
@@ -32,12 +31,14 @@ const fetchAllWorkouts = workouts => {
 
 // THUNK CREATORS;
 export const fetchAllWorkoutsThunk = () => dispatch => {
-  // return axios
-  //   .get('/api/workouts')
-  //   .then(res => res.data)
-  //   .then(workouts => dispatch(fetchAllWorkouts(workouts)))
-  //   .catch(err => console.log(err))
-  return dispatch(fetchAllWorkouts(allWorkouts));
+  return axios
+    .get('/api/exercises')
+    .then(res => res.data)
+    .then(workouts => dispatch(fetchAllWorkouts(workouts)))
+    .catch(err => console.log(err))
+
+  // tests
+  // return dispatch(fetchAllWorkouts(allWorkouts));
 }
 
 // REDUCER;
