@@ -4,24 +4,30 @@
   display: inline-block;
   margin: 0 0 1.5em;
   padding: 1em;
+  width: 100%;
 } 
 
 .all-workouts img {
   width: 100%;
 }
 
-.workouts-container {
+.all-workouts div {
   column-gap: 1.5em;
-  font-size: .85em;
   margin: 1.5em 1.5em; 
   padding: 0;
+  display: inline-block;
 }
 
-input {
+.all-workouts p {
+  font-size: 1vw;
+  word-break: break-all;
+}
+
+/* input {
   display: block;
   font-size: 22px;
   height: 50px;
   margin: 0 auto;
   text-align: center;
   width: 50%;
-}
+} */

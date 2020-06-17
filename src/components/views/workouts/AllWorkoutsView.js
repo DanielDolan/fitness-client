@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { DropdownButton } from 'reactstrap';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 const AllWorkoutsView = props => {
   if (!props.allWorkouts.length) {
@@ -11,21 +11,11 @@ const AllWorkoutsView = props => {
   return (
     <>
 
-    {/* <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li><a href="#">HTML</a></li>
-        <li><a href="#">CSS</a></li>
-        <li><a href="#">JavaScript</a></li>
-      </ul>
-    </div>  */}
-
-    {/* <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+    <DropdownButton id="dropdown-basic-button" title="Filter by category">
       <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
       <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
       <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-    </DropdownButton> */}
+    </DropdownButton>
 
     <div className="all-workouts">
       {props.allWorkouts.map(workout => (

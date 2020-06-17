@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchAllWorkoutsThunk } from '../../../thunks';
 import { AllWorkoutsView } from '../../views';
+import "../../views/styles/AllWorkoutsView.css"
 
 // Smart container;
 class AllWorkoutsContainer extends Component {
