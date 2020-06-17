@@ -5,4 +5,4 @@ export { default as WorkoutContainer } from './workouts/WorkoutContainer';
 export { default as AllMealsContainer } from './meals/AllMealsContainer';
 export { default as MealContainer } from './meals/MealContainer';
 export { default as NavBarContainer } from "./NavBarContainer";
-export { Login, Signup} from "./AuthFormContainer";
+export { Login, Signup } from "./AuthFormContainer";

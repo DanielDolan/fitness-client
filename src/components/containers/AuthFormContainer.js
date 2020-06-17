@@ -11,29 +11,37 @@ class AuthFormContainer extends Component {
     super();
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      lastName: "",
+      firstName: ""
     }
   }
 
+  // handle the input text change
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  // handle the submit bottom
   handleSubmit = (event) => {
     event.preventDefault();
     const formName = event.target.name;
+    console.log(formName)
     this.props.loginOrSignup(this.state.email, this.state.password, formName);
   }
 
   render() {
     return (
       <AuthFormView
+        firstName={this.props.firstName}
+        lastName={this.props.lastName}
         name={this.props.name}
         displayName={this.props.displayName}
         error={this.props.error}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         isLoggedIn={this.props.isLoggedIn}
+        isSigned={this.props.isSigned}
         userEmail={this.props.userEmail}
       />
     );
@@ -42,6 +50,7 @@ class AuthFormContainer extends Component {
 
 // Map state to props;
 const mapLogin = state => {
+  // console.log(state.user)
   return {
     name: "login",
     displayName: "Login",
@@ -57,7 +66,9 @@ const mapSignup = state => {
     name: "signup",
     displayName: "Sign Up",
     error: state.user.error,
-    isLoggedIn: !!state.user.id,
+    firstName: state.user.firstName,
+    lastsName: state.user.lastName,
+    isSigned: !!state.user.id,
     userEmail: state.user.email
   };
 };

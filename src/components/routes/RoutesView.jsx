@@ -16,6 +16,7 @@ const RoutesView = () => {
       <Route exact path="/workouts/:id" component={WorkoutContainer} />
       <Route exact path="/meals" component={AllMealsContainer} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={Signup} />
       {/* <Route exact path="/meals/:id" component={MealContainer} /> */}
     </Switch>
   );
