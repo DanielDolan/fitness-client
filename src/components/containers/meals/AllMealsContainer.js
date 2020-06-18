@@ -6,6 +6,7 @@ import MealContainer from "./MealContainer"
 import axios from "axios"
 import { connect } from "react-redux";
 import {fetchAllMealsThunk} from '../../../thunks';
+import AllMealsView from "../../views/meals/AllMealsView"
 
 
 // const apiKey = process.env.REACT_APP_API_KEY;
@@ -69,6 +70,7 @@ class AllMealsContainer extends Component {
         /> */}
         {/* <MealContainer meals={this.state.meals} /> */}
         {console.log(this.props.allMeals)}
+        <AllMealsView meals={this.props.allMeals}/>
       </div>
     );
   }

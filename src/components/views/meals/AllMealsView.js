@@ -1,36 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const AllMealView = (props) => {
-
-  // const id = props.meal.uri.substring(51)
-  //console.log(id)
-  //console.log(props.meal)
-  //console.log(props.meal)
-
-  // let obj = props.meal
-  // let result = Object.keys(obj).map(function(key) {
-  //   return obj[key];
-  // });
-
-  //console.log(result)
-  //console.log(result[0])
-
+const AllMealsView = (props) => {
   return (
 
-    // <div className="meal-view">
-    //   {result.map(meal => (
-    //     <div key={result[0].substring(51)}>
-    //       <Link to={`/meals/${result[0].substring(51)}`}>
-    //         <h1>{result[1]}</h1>
-    //       </Link>
- 
-    //     </div>
-    //   ))}
-    // </div>
 
     <div className="meal-view">
-      <Link to={`/meals/${props.meal.uri.substring(51)}`}>
+      {/* <Link to={`/meals/${props.meal.uri.substring(51)}`}>
         <h1>{props.meal.label}</h1>
       </Link>
 
@@ -45,9 +21,15 @@ const AllMealView = (props) => {
               padding: "5px",
             }} alt="picture of food"/>
       <button>Add</button>
-      <button>Delete</button>
+      <button>Delete</button> */}
+      {props.meals.map(meal => <div key={meal.uri}>
+        <Link to={`/meals/${meal.uri.substring(51)}`}>
+        <h1>{meal.label}</h1>
+        </Link>
+      </div>)}
+
     </div>
   )
 };
 
-export default AllMealView;
+export default AllMealsView;

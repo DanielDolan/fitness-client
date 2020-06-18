@@ -13,7 +13,6 @@ const fetchAllMeals = meals => {
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_ID = process.env.REACT_APP_API_ID;
-//const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey
 const BASE_URL = "https://api.edamam.com/search"
 
 // thunk creators

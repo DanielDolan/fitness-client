@@ -11,26 +11,24 @@ const fetchMeal = (meal) => {
   };
 };
 
-const apiKey = process.env.REACT_APP_API_KEY;
-const apiID = process.env.REACT_APP_API_ID;
-const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey
+const API_KEY = process.env.REACT_APP_API_KEY;
+const API_ID = process.env.REACT_APP_API_ID;
+const BASE_URL = "https://api.edamam.com/search"
+const RECIPE_BASE = "http://www.edamam.com/ontologies/edamam.owl#recipe_"
 
 // Thunk Creators
 export const fetchMealThunk = (id) => (dispatch) => {
-  // const urlString = `https://api.edamam.com/search?q=${searchTerm.replace(
-  //   /\s/g,
-  //   "+"
-  // )}&app_id=${apiID}&app_key=${apiKey}`;
-
-  return axios
-    .get(`/api/meals/${id}`)
-    .then((res) => res.data)
-    .then((meal) => dispatch(fetchMeal(meal)))
-    .catch((err) => console.log(err));
-
-    // axios.get(mealsHome).then((result) => {
-    //   this.setState({ meals: result.data.hits })
-    // });
+  return axios.get(BASE_URL, {
+    params: {
+        r: `${RECIPE_BASE}${id}`,
+        app_id: API_ID,
+        app_key: API_KEY,
+    }
+}).then(res => res.data).then(recipe => {
+    // const meals = recipes.map(r => r.recipe)
+    dispatch(fetchMeal(recipe[0]))
+})
+    .catch(err => console.log(err))
 };
 
 // Reducer
