@@ -22,40 +22,46 @@ class AllMealsContainer extends Component {
   //   };
   // }
 
-  componentDidMount() {
-    // axios.get(mealsHome).then((result) => {
-    //   this.setState({ meals: result.data.hits});})
-    this.props.fetchAllMeals()
-  }
+  // componentDidMount() {
+  //   // axios.get(mealsHome).then((result) => {
+  //   //   this.setState({ meals: result.data.hits});})
 
-  // handleTermChange=(searchTerm) => {
-  //   const urlString = `https://api.edamam.com/search?q=${searchTerm.replace(
-  //     /\s/g,
-  //     "+"
-  //   )}&app_id=${apiID}&app_key=${apiKey}`;
-
-  //   let id;
-
-  //   if (searchTerm.length !== 0) {
-  //     axios.get(urlString).then((result) => {
-  //       id = result.data.hits[0].recipe.uri.substring(51)
-  //       this.setState({ meals: result.data.hits })
-  //       this.setState({ mealId: id })
-  //     });
-  //   } 
-  //   else {
-  //     axios.get(mealsHome).then((result) => {
-  //       id = result.data.hits[0].recipe.uri.substring(51)
-  //       this.setState({ meals: result.data.hits })
-  //       this.setState({ mealId: id })
-  //     });
-  //   }
+  //   this.props.fetchAllMeals()
+  //   //this.props.fetchAllMeals(this.props.match.params.id)
   // }
+
+  handleTermChange=(searchTerm) => {
+    // const urlString = `https://api.edamam.com/search?q=${searchTerm.replace(
+    //   /\s/g,
+    //   "+"
+    // )}&app_id=${apiID}&app_key=${apiKey}`;
+
+    let id;
+
+    if (searchTerm.length !== 0) {
+      // axios.get(urlString).then((result) => {
+      //   id = result.data.hits[0].recipe.uri.substring(51)
+      //   this.setState({ meals: result.data.hits })
+      //   this.setState({ mealId: id })
+      // });
+      console.log(searchTerm)
+      console.log(this.props.match.params.searchTerm)
+      this.props.fetchAllMeals(this.props.match.params.searchTerm)
+    } 
+    else {
+      // axios.get(mealsHome).then((result) => {
+      //   id = result.data.hits[0].recipe.uri.substring(51)
+      //   this.setState({ meals: result.data.hits })
+      //   this.setState({ mealId: id })
+      // });
+      this.props.fetchAllMeals()
+    }
+  }
 
   render() {
     return (
       <div>
-        {/* <div className="App-header">
+        <div className="App-header">
           <h2>Meal Search</h2>
         </div>
         <SearchBar
@@ -67,9 +73,9 @@ class AllMealsContainer extends Component {
             paddingLeft: 10,
           }}
           onTermChange={debounce(this.handleTermChange, 1000)}
-        /> */}
+        />
         {/* <MealContainer meals={this.state.meals} /> */}
-        {console.log(this.props.allMeals)}
+
         <AllMealsView meals={this.props.allMeals}/>
       </div>
     );
