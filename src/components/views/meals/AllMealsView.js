@@ -6,13 +6,12 @@ const AllMealsView = (props) => {
 
 
     <div className="meal-view">
-      {/* <Link to={`/meals/${props.meal.uri.substring(51)}`}>
-        <h1>{props.meal.label}</h1>
-      </Link>
-
-      <h3>{props.meal.label}</h3>
-      <p>Total Calories: {props.meal.calories}</p>
-      <img src={props.meal.image} style={{
+      {props.meals.map(meal => <div key={meal.uri}>
+        <Link to={`/meals/${meal.uri.substring(51)}`}>
+        <h1>{meal.label}</h1>
+        </Link>
+        <p>Total Calories: {meal.calories}</p>
+        <img src={meal.image} style={{
               width: "300px",
               height: "300px",
               objectFit: "fit",
@@ -21,11 +20,7 @@ const AllMealsView = (props) => {
               padding: "5px",
             }} alt="picture of food"/>
       <button>Add</button>
-      <button>Delete</button> */}
-      {props.meals.map(meal => <div key={meal.uri}>
-        <Link to={`/meals/${meal.uri.substring(51)}`}>
-        <h1>{meal.label}</h1>
-        </Link>
+      <button>Delete</button>
       </div>)}
 
     </div>
