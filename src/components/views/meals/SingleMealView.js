@@ -4,6 +4,7 @@ import "../styles/meals/SingleMealView.css"
 const SingleMealView = (props) => {
   return (
     <div className="meal">
+      <h1>SingleMealView.js</h1>
       <img src={props.meal.image} alt={props.label} />
       <h1>Name: {props.meal.label}</h1>
       {/* <p>targeted muscle group: {props.meal.muscleGroup}</p>

@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { SingleMealView } from "../../views"
 import { fetchMealThunk } from "../../../thunks";
 
-
 class SingleMealContainer extends Component {
   componentDidMount() {
     this.props.fetchMeal(this.props.match.params.id);
