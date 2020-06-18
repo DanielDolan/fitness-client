@@ -3,33 +3,6 @@ import axios from "axios";
 // Action Types
 const FETCH_MEAL = "FETCH_MEAL";
 
-// test data
-// const workout = {
-//   id: "1234567",
-//   name: "test name",
-//   imageUrl: "",
-//   description: "test description",
-// };
-
-// const allMeals = [
-//   {
-//     id: "123",
-//     name: "test workout name 1",
-//     imageUrl: "https://via.placeholder.com/480x240?text=Placeholder",
-//     description: "test workout description 1",
-//     muscleGroup: "test muscle group 1",
-//     recSets: 1,
-//   },
-//   {
-//     id: "456",
-//     name: "test workout name 2",
-//     imageUrl: "https://via.placeholder.com/480x240?text=Placeholder",
-//     description: "test workout description 2",
-//     muscleGroup: "test muscle group 2",
-//     recSets: 2,
-//   },
-// ];
-
 // Action Creators
 const fetchMeal = (meal) => {
   return {
@@ -38,13 +11,24 @@ const fetchMeal = (meal) => {
   };
 };
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+const API_ID = process.env.REACT_APP_API_ID;
+const BASE_URL = "https://api.edamam.com/search"
+const RECIPE_BASE = "http://www.edamam.com/ontologies/edamam.owl#recipe_"
+
 // Thunk Creators
 export const fetchMealThunk = (id) => (dispatch) => {
-  return axios
-    .get(`/api/meals/${id}`)
-    .then((res) => res.data)
-    .then((workout) => dispatch(fetchMeal(workout)))
-    .catch((err) => console.log(err));
+  return axios.get(BASE_URL, {
+    params: {
+        r: `${RECIPE_BASE}${id}`,
+        app_id: API_ID,
+        app_key: API_KEY,
+    }
+}).then(res => res.data).then(recipe => {
+    // const meals = recipes.map(r => r.recipe)
+    dispatch(fetchMeal(recipe[0]))
+})
+    .catch(err => console.log(err))
 };
 
 // Reducer

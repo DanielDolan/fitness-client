@@ -4,53 +4,58 @@ import SearchBar from "./SearchBar"
 import { debounce } from "lodash";
 import MealContainer from "./MealContainer"
 import axios from "axios"
-// import RoutesContainer from "../../routes/RoutesContainer"
+import { connect } from "react-redux";
+import {fetchAllMealsThunk} from '../../../thunks';
+import AllMealsView from "../../views/meals/AllMealsView"
 
-const apiKey = process.env.REACT_APP_API_KEY;
-const apiID = process.env.REACT_APP_API_ID;
-const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey
 
-console.log(mealsHome)
+// const apiKey = process.env.REACT_APP_API_KEY;
+// const apiID = process.env.REACT_APP_API_ID;
+// const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey
 
 class AllMealsContainer extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      meals: [],
-    };
-
-    // this.handleTermChange = this.handleTermChange.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     meals: [],
+  //     mealId: "",
+  //   };
+  // }
 
   componentDidMount() {
-    axios.get(mealsHome).then((result) => {
-      this.setState({ meals: result.data.hits});})
+    // axios.get(mealsHome).then((result) => {
+    //   this.setState({ meals: result.data.hits});})
+    this.props.fetchAllMeals()
   }
 
-  handleTermChange=(searchTerm) => {
-    const urlString = `https://api.edamam.com/search?q=${searchTerm.replace(
-      /\s/g,
-      "+"
-    )}&app_id=${apiID}&app_key=${apiKey}`;
+  // handleTermChange=(searchTerm) => {
+  //   const urlString = `https://api.edamam.com/search?q=${searchTerm.replace(
+  //     /\s/g,
+  //     "+"
+  //   )}&app_id=${apiID}&app_key=${apiKey}`;
 
-    if (searchTerm.length !== 0) {
-      
-       axios.get(urlString).then((result) => {
-         this.setState({ meals: result.data.hits })
-       });
-     } else {
-       axios.get(mealsHome).then((result) => {
-         this.setState({ meals: result.data.hits })
-       });
-     }
+  //   let id;
 
-   
-  }
+  //   if (searchTerm.length !== 0) {
+  //     axios.get(urlString).then((result) => {
+  //       id = result.data.hits[0].recipe.uri.substring(51)
+  //       this.setState({ meals: result.data.hits })
+  //       this.setState({ mealId: id })
+  //     });
+  //   } 
+  //   else {
+  //     axios.get(mealsHome).then((result) => {
+  //       id = result.data.hits[0].recipe.uri.substring(51)
+  //       this.setState({ meals: result.data.hits })
+  //       this.setState({ mealId: id })
+  //     });
+  //   }
+  // }
+
   render() {
     return (
       <div>
-        <div className="App-header">
+        {/* <div className="App-header">
           <h2>Meal Search</h2>
         </div>
         <SearchBar
@@ -62,15 +67,25 @@ class AllMealsContainer extends Component {
             paddingLeft: 10,
           }}
           onTermChange={debounce(this.handleTermChange, 1000)}
-        />
-        <MealContainer meals={this.state.meals} />
+        /> */}
+        {/* <MealContainer meals={this.state.meals} /> */}
+        {console.log(this.props.allMeals)}
+        <AllMealsView meals={this.props.allMeals}/>
       </div>
     );
   }
-
-
-
-
 }
 
-export default AllMealsContainer;
+const mapState = state => {
+  return {
+    allMeals: state.allMeals
+  }
+}
+
+const mapDispatch = dispatch => {
+  return {
+    fetchAllMeals: () => dispatch(fetchAllMealsThunk())
+  }
+}
+
+export default connect(mapState, mapDispatch)(AllMealsContainer);

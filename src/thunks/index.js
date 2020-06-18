@@ -2,3 +2,4 @@
 export * from '../store/utilities/allWorkouts';
 export * from '../store/utilities/workout';
 export * from '../store/utilities/meal';
+export * from '../store/utilities/allMeals';

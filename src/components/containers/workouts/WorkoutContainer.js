@@ -11,8 +11,8 @@ class WorkoutContainer extends Component {
   render() {
     return (
       <div className="workouts-container">
-    <WorkoutView workout={this.props.workout} />;
-    </div>
+        <WorkoutView workout={this.props.workout} />;
+      </div>
     );
   }
 }
