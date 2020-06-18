@@ -21,20 +21,42 @@ const removeUser = () => {
 // THUNK CREATORS
 export const me = () => async dispatch => {
   try {
-    const res = await axios.get("http://localhost:5000/auth/me", { withCredentials: true });
+    const res = await axios.get("http://localhost:3001/auth/me", { withCredentials: true });
     dispatch(getUser(res.data || {}));
   }
   catch (err) {
+    console.log(err)
     console.error(err);
   }
 };
 
-export const auth = (email, password, method) => async dispatch => {
+export const signup = (firstName, lastName, email, password) => async dispatch => {
   let res;
   try {
-    res = await axios.post(`http://localhost:5000/auth/${method}`, { email, password }, { withCredentials: true });
+    res = await axios.post(`http://localhost:3001/auth/signup`, { firstName, lastName, email, password }, { withCredentials: true });
   }
   catch (authError) {
+    console.log("post error")
+    console.error(authError)
+    return dispatch(getUser({ error: authError }));
+  }
+
+  try {
+    dispatch(getUser(res.data));
+  }
+  catch (dispatchOrHistoryErr) {
+    console.error(dispatchOrHistoryErr);
+  }
+};
+
+export const login = (email, password) => async dispatch => {
+  let res;
+  try {
+    res = await axios.post(`http://localhost:3001/auth/login`, { email, password }, { withCredentials: true });
+  }
+  catch (authError) {
+    console.log("post error")
+    console.error(authError)
     return dispatch(getUser({ error: authError }));
   }
 
@@ -48,7 +70,7 @@ export const auth = (email, password, method) => async dispatch => {
 
 export const logout = () => async dispatch => {
   try {
-    await axios.delete("http://localhost:5000/auth/logout", { withCredentials: true });
+    await axios.delete("http://localhost:3001/auth/logout", { withCredentials: true });
     dispatch(removeUser());
   }
   catch (err) {

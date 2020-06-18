@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import PropTypes from 'prop-types';
 // import { fetchAllWorkoutsThunk } from '../../../thunks';
 import { connect } from "react-redux";
-import { auth } from "../../thunks";
+import { signup,login } from "../../thunks";
 import { AuthFormView } from "../views";
 
 // Smart container;
@@ -26,8 +26,11 @@ class AuthFormContainer extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const formName = event.target.name;
-    console.log(formName)
-    this.props.loginOrSignup(this.state.email, this.state.password, formName);
+    console.log("form name: ", formName)
+    if (formName === "login"){
+      this.props.login(this.state.email, this.state.password, formName);
+  } else
+      this.props.signup(this.state.firstName, this.state.lastName, this.state.email, this.state.password, formName);
   }
 
   render() {
@@ -73,12 +76,20 @@ const mapSignup = state => {
   };
 };
 
-// Map dispatch to props;
-const mapDispatch = dispatch => {
-  return {
-    loginOrSignup: (email, password, formName) => dispatch(auth(email, password, formName))
+// Map login dispatch to props;
+const mapDispatchLogin = dispatch => {
+  return { 
+    login: (email, password, formName) => dispatch(login(email, password))
   }
 };
 
-export const Login = connect(mapLogin, mapDispatch)(AuthFormContainer);
-export const Signup = connect(mapSignup, mapDispatch)(AuthFormContainer);
+// Map sign up dispatch
+const mapDispatchSignUp = dispatch =>{
+  return { 
+    signup: (firstName, lastName, email, password, formName) => dispatch(signup(firstName, lastName, email, password))
+  }
+};
+
+
+export const Login = connect(mapLogin, mapDispatchLogin)(AuthFormContainer);
+export const Signup = connect(mapSignup, mapDispatchSignUp)(AuthFormContainer);

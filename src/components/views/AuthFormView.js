@@ -17,8 +17,7 @@ const AuthFormView = props => {
       handleSubmit, 
       error, 
       handleChange, 
-      isLoggedIn,
-      isSigned} = props;
+      isLoggedIn} = props;
 
     // display login form when user click on login bottom
     const displayLogin = (
@@ -92,7 +91,7 @@ const AuthFormView = props => {
     );
 
     // if user is signed display login form, display sign up form otherwise
-    if(false)
+    if(name == "login")
       return ( <>{displayLogin}</> );
     else
       return ( <>{displaySignUp}</>);
