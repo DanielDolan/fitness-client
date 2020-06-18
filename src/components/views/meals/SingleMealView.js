@@ -23,10 +23,19 @@ const SingleMealView = (props) => {
    let cookingTime = props.meal.totalTime;
 
    function cookingTimeFunction(){
-   if(cookingTime == 0){
+   if(cookingTime === 0){
 }
 else{
   return(<p>Cooking Time: {cookingTime} minutes</p>)
+}
+}
+
+let dietFacts = props.meal.dietLabels;
+function dietFactsFunction(){
+  if(dietFacts === undefined || dietFacts.length == 0){
+}
+else{
+ return(<p>Diet Facts: {dietFacts}</p>)
 }
 }
 
@@ -37,7 +46,7 @@ else{
       <p>Serving Size: {props.meal.yield}</p>
       <p>Total Calories: {Math.round(props.meal.calories)}</p>
       <a href={props.meal.url}> Recipe Instructions</a>
-      <p>Diet Facts (Name can change): {props.meal.dietLabels}</p>
+      {dietFactsFunction()}
       {cookingTimeFunction()}
       <p>Total Protein: {Math.round(protein)} </p>
       <p>Carbs: {Math.round(carbs)} </p>
