@@ -4,23 +4,18 @@ import SearchBar from "./SearchBar"
 import { debounce } from "lodash";
 import MealContainer from "./MealContainer"
 import axios from "axios"
-// import RoutesContainer from "../../routes/RoutesContainer"
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiID = process.env.REACT_APP_API_ID;
 const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey
 
-console.log(mealsHome)
-
 class AllMealsContainer extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       meals: [],
+      mealId: "",
     };
-
-    // this.handleTermChange = this.handleTermChange.bind(this);
   }
 
   componentDidMount() {
@@ -34,19 +29,24 @@ class AllMealsContainer extends Component {
       "+"
     )}&app_id=${apiID}&app_key=${apiKey}`;
 
-    if (searchTerm.length !== 0) {
-      
-       axios.get(urlString).then((result) => {
-         this.setState({ meals: result.data.hits })
-       });
-     } else {
-       axios.get(mealsHome).then((result) => {
-         this.setState({ meals: result.data.hits })
-       });
-     }
+    let id;
 
-   
+    if (searchTerm.length !== 0) {
+      axios.get(urlString).then((result) => {
+        id = result.data.hits[0].recipe.uri.substring(51)
+        this.setState({ meals: result.data.hits })
+        this.setState({ mealId: id })
+      });
+    } 
+    else {
+      axios.get(mealsHome).then((result) => {
+        id = result.data.hits[0].recipe.uri.substring(51)
+        this.setState({ meals: result.data.hits })
+        this.setState({ mealId: id })
+      });
+    }
   }
+
   render() {
     return (
       <div>
@@ -67,10 +67,6 @@ class AllMealsContainer extends Component {
       </div>
     );
   }
-
-
-
-
 }
 
 export default AllMealsContainer;
