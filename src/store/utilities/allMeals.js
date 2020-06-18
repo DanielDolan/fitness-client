@@ -24,7 +24,10 @@ export const fetchAllMealsThunk = () => dispatch => {
             app_id: API_ID,
             app_key: API_KEY,
         }
-    }).then(res => res.data).then(meals => dispatch(fetchAllMeals(meals)))
+    }).then(res => res.data.hits).then(recipes => {
+        const meals = recipes.map(r => r.recipe)
+        dispatch(fetchAllMeals(meals))
+    })
         .catch(err => console.log(err))
 }
 
