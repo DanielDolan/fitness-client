@@ -27,7 +27,6 @@ class SingleMealContainer extends Component {
     
     return (
       <div className="single-meal-container">
-        <h1>single meal page</h1>
         <SingleMealView meal={this.props.meal} />
         {console.log(this.props.meal)}
       </div>
