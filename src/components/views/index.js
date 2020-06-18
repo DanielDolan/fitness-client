@@ -4,3 +4,4 @@ export { default as WorkoutView } from "./workouts/WorkoutView";
 export { default as AllMealsView } from "./meals/AllMealsView"
 export { default as NavBarView } from "./NavBarView";
 export { default as SingleMealView } from "./meals/SingleMealView"
+export { default as AuthFormView } from "./AuthFormView";

@@ -4,3 +4,4 @@ export { default as allMeals} from "../store/utilities/allMeals";
 export { default as meal} from "../store/utilities/meal";
 export { default as allWorkouts} from "../store/utilities/allWorkouts";
 export { default as workout} from "../store/utilities/workout";
+export { default as user } from '../store/utilities/user';

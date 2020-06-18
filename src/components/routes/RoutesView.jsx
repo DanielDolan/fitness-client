@@ -3,10 +3,11 @@ import { Switch, Route } from "react-router-dom";
 import {
   Home,
   AllWorkoutsContainer,
-  WorkoutContainer,
+  WorkoutContainer, 
 } from "../containers";
-import AllMealsContainer from "../containers/meals/AllMealsContainer"
-import SingleMealContainer from "../containers/meals/SingleMealContainer"
+import AllMealsContainer from "../containers/meals/AllMealsContainer";
+import SingleMealContainer from "../containers/meals/SingleMealContainer";
+import { Login, Signup } from "../containers";
 
 const RoutesView = () => {
   return (
@@ -16,7 +17,9 @@ const RoutesView = () => {
       <Route exact path="/workouts/:id" component={WorkoutContainer} />
       <Route exact path="/meals/:id" component={SingleMealContainer} />
       <Route exact path="/meals" component={AllMealsContainer} />
-      
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={Signup} />
+      {/* <Route exact path="/meals/:id" component={MealContainer} /> */}
     </Switch>
   );
 };
