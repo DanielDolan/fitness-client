@@ -7,7 +7,7 @@ import {
 } from "../containers";
 import AllMealsContainer from "../containers/meals/AllMealsContainer";
 import SingleMealContainer from "../containers/meals/SingleMealContainer";
-import { Login, Signup } from "../containers";
+import { Login, Signup, Logout  } from "../containers";
 import ProfilePage from '../containers/ProfilePage';
 
 
@@ -22,6 +22,8 @@ const RoutesView = () => {
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
       <Route path="/profile" component={ProfilePage}/>
+      <Route exact path="/logout" component={Logout} />
+      {/* <Route exact path="/meals/:id" component={MealContainer} /> */}
     </Switch>
   );
 };
