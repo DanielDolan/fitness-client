@@ -30,9 +30,9 @@ const fetchAllWorkouts = workouts => {
 }
 
 // THUNK CREATORS;
-export const fetchAllWorkoutsThunk = () => dispatch => {
+export const fetchAllWorkoutsThunk = (searchTerm) => dispatch => {
   return axios
-    .get('/api/exercises')
+    .get('/api/exercises/')
     .then(res => res.data)
     .then(workouts => dispatch(fetchAllWorkouts(workouts)))
     .catch(err => console.log(err))

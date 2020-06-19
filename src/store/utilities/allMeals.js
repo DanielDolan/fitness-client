@@ -17,7 +17,6 @@ const BASE_URL = "https://api.edamam.com/search"
 
 // thunk creators
 export const fetchAllMealsThunk = (searchTerm) => dispatch => {
-	console.log("searchTerm: ", searchTerm)
 	return axios.get(BASE_URL, {
 		params: {
 			q: `${searchTerm}`,

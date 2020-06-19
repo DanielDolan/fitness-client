@@ -8,6 +8,8 @@ import {
 import AllMealsContainer from "../containers/meals/AllMealsContainer";
 import SingleMealContainer from "../containers/meals/SingleMealContainer";
 import { Login, Signup } from "../containers";
+import ProfilePage from '../containers/ProfilePage';
+
 
 const RoutesView = () => {
   return (
@@ -19,7 +21,7 @@ const RoutesView = () => {
       <Route exact path="/meals" component={AllMealsContainer} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
-      {/* <Route exact path="/meals/:id" component={MealContainer} /> */}
+      <Route path="/profile" component={ProfilePage}/>
     </Switch>
   );
 };
