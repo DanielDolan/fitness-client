@@ -15,7 +15,7 @@ class ProfilePage extends Component {
   render() {
     return (
       <div>
-        <h1>{userEmail}</h1>
+        {/* <h1>{userEmail}</h1> */}
       </div>
     );
   }
