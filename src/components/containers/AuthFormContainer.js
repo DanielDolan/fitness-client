@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signup, login, logout } from "../../thunks";
 import { AuthFormView } from "../views";
+// import  ProfilePage  from './ProfilePage'
 
 // Smart container;
 class AuthFormContainer extends Component {
@@ -40,6 +41,7 @@ class AuthFormContainer extends Component {
 
   render() {
     return (
+      <>
       <AuthFormView
         firstName={this.props.firstName}
         lastName={this.props.lastName}
@@ -52,6 +54,7 @@ class AuthFormContainer extends Component {
         isSigned={this.props.isSigned}
         userEmail={this.props.userEmail}
       />
+      </>
     );
   }
 };

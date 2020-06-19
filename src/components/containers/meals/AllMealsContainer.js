@@ -25,7 +25,7 @@ class AllMealsContainer extends Component {
         <SearchBar
           style={{
             fontSize: 24,
-            width: "40%",
+            width: "50%",
             paddingTop: 8,
             paddingBottom: 8,
             paddingLeft: 10,

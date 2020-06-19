@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "../styles/AllWorkoutsView.css";
 // import { DropdownButton } from 'reactstrap';
 
 const AllWorkoutsView = props => {
@@ -14,7 +15,7 @@ const AllWorkoutsView = props => {
 
     <div className="all-workouts">
       {props.allWorkouts.map(workout => (
-        <div key={workout.id}>
+        <div class="workout-card" key={workout.id}>
           <Link to={`/workouts/${workout.id}`}>
             <h1>{workout.name}</h1>
           </Link>
@@ -26,7 +27,8 @@ const AllWorkoutsView = props => {
           boxShadow: "0 10px 10px rgba(0,0,0,.7)",
           padding: "5px",
            }} alt={workout.name} />
-
+          
+          <br></br>
           <p>{workout.muscleGroup}</p>
           <p>{workout.description}</p>
 
