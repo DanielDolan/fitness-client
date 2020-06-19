@@ -1,61 +1,25 @@
 import React, { Component } from "react";
 import "../../views/styles/meals/AllMealsView.css"
+import AllMealsView from "../../views/meals/AllMealsView"
 import SearchBar from "./SearchBar"
 import { debounce } from "lodash";
-import MealContainer from "./MealContainer"
-import axios from "axios"
 import { connect } from "react-redux";
-import {fetchAllMealsThunk} from '../../../thunks';
-import AllMealsView from "../../views/meals/AllMealsView"
-
-
-// const apiKey = process.env.REACT_APP_API_KEY;
-// const apiID = process.env.REACT_APP_API_ID;
-// const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey
+import { fetchAllMealsThunk } from '../../../thunks';
 
 class AllMealsContainer extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     meals: [],
-  //     mealId: "",
-  //   };
-  // }
 
   componentDidMount() {
-    // axios.get(mealsHome).then((result) => {
-    //   this.setState({ meals: result.data.hits});})
-    this.props.fetchAllMeals()
+    this.props.fetchAllMeals("undefined")
   }
 
-  // handleTermChange=(searchTerm) => {
-  //   const urlString = `https://api.edamam.com/search?q=${searchTerm.replace(
-  //     /\s/g,
-  //     "+"
-  //   )}&app_id=${apiID}&app_key=${apiKey}`;
-
-  //   let id;
-
-  //   if (searchTerm.length !== 0) {
-  //     axios.get(urlString).then((result) => {
-  //       id = result.data.hits[0].recipe.uri.substring(51)
-  //       this.setState({ meals: result.data.hits })
-  //       this.setState({ mealId: id })
-  //     });
-  //   } 
-  //   else {
-  //     axios.get(mealsHome).then((result) => {
-  //       id = result.data.hits[0].recipe.uri.substring(51)
-  //       this.setState({ meals: result.data.hits })
-  //       this.setState({ mealId: id })
-  //     });
-  //   }
-  // }
+  handleTermChange = (searchTerm) => {
+    this.props.fetchAllMeals(searchTerm)
+  }
 
   render() {
     return (
       <div>
-        {/* <div className="App-header">
+        <div className="all-meals-container">
           <h2>Meal Search</h2>
         </div>
         <SearchBar
@@ -66,11 +30,9 @@ class AllMealsContainer extends Component {
             paddingBottom: 8,
             paddingLeft: 10,
           }}
-          onTermChange={debounce(this.handleTermChange, 1000)}
-        /> */}
-        {/* <MealContainer meals={this.state.meals} /> */}
-        {console.log(this.props.allMeals)}
-        <AllMealsView meals={this.props.allMeals}/>
+          onTermChange={debounce((searchTerm) => this.handleTermChange(searchTerm), 1000)}
+        />
+        <AllMealsView meals={this.props.allMeals} />
       </div>
     );
   }
@@ -84,7 +46,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    fetchAllMeals: () => dispatch(fetchAllMealsThunk())
+    fetchAllMeals: (searchTerm) => dispatch(fetchAllMealsThunk(searchTerm))
   }
 }
 
