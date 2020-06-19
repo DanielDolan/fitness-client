@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
+import "../styles/meals/AllMealsView.css";
 const AllMealsView = (props) => {
   return (
     <div className="all-meals">
