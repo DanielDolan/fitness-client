@@ -20,6 +20,9 @@ const NavBarView = (props) => {
       <Link to="/signup" className="nav-link">
         Sign Up
       </Link>
+      <Link to="/profile" className="nav-link">
+        Profile
+      </Link>
     </nav>
   );
 };

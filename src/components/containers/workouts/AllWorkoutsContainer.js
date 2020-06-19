@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchAllWorkoutsThunk } from '../../../thunks';
 import { AllWorkoutsView } from '../../views';
+import SearchBar from "./SearchBar"
+import { debounce } from "lodash";
+
+
 
 // Smart container;
 class AllWorkoutsContainer extends Component {
@@ -11,8 +15,29 @@ class AllWorkoutsContainer extends Component {
     this.props.fetchAllWorkouts();
   }
 
+  handleTermChange = (searchTerm) => {
+    this.props.fetchAllWorkouts(searchTerm)
+  }
+
   render() {
-    return <AllWorkoutsView allWorkouts={this.props.allWorkouts} />
+    return (
+      // <div>
+        <div className="all-workouts-container">
+          {/* <h2>Workout Search</h2>
+        </div>
+        <SearchBar
+          style={{
+            fontSize: 24,
+            width: "40%",
+            paddingTop: 8,
+            paddingBottom: 8,
+            paddingLeft: 10,
+          }}
+          onTermChange={debounce((searchTerm) => this.handleTermChange(searchTerm), 1000)}
+        /> */}
+    <AllWorkoutsView allWorkouts={this.props.allWorkouts} />
+    </div>
+    )
   }
 }
 
