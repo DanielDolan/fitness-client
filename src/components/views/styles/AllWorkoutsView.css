@@ -6,11 +6,12 @@
   padding: 1em;
   width: 100%;
 }  */
-*{
-  background-color:lightpink ;
-}
+
 .all-workouts img {
   width: 100%;
+}
+.all-workouts{
+  background-color: pink;
 }
 
 .workout-card {

@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles/HomeView.css";
 // import { Link } from "react-router-dom";
 
 const HomeView = props => {
