@@ -15,28 +15,12 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const API_ID = process.env.REACT_APP_API_ID;
 const BASE_URL = "https://api.edamam.com/search"
 
-//thunk creators
-// export const fetchAllMealsThunk = (searchTerm) => dispatch => {
-// 	return (
-// 		axios
-// 		.get(`${BASE_URL}?q=${searchTerm}&app_id=${API_ID}&app_key=${API_KEY}`)
-// 		.then(res => res.data.hits).then(recipes => {
-// 			const meals = recipes.map(r => r.recipe)
-// 			dispatch(fetchAllMeals(meals))
-// 		})
-// 		.catch(err => console.log(err))
-// 	)
-// }
-
 // thunk creators
 export const fetchAllMealsThunk = (searchTerm) => dispatch => {
 	console.log("searchTerm: ", searchTerm)
 	return axios.get(BASE_URL, {
 		params: {
-			//q: "chicken",
 			q: `${searchTerm}`,
-			//q: `searchTerm`,
-			// q: "searchTerm",
 			app_id: API_ID,
 			app_key: API_KEY,
 		}
@@ -46,18 +30,6 @@ export const fetchAllMealsThunk = (searchTerm) => dispatch => {
 	})
 		.catch(err => console.log(err))
 }
-
-// test
-// export const fetchAllMealsThunk = (searchTerm) => dispatch => {
-// 	console.log(searchTerm)
-// 	const URL = `https://api.edamam.com/search?q=${searchTerm}&app_id=${API_ID}&app_key=${API_KEY}`;
-// 	return axios.get(URL)
-// 		.then(res => res.data.hits).then(recipes => {
-// 			const meals = recipes.map(r => r.recipe)
-// 			dispatch(fetchAllMeals(meals))
-// 		})
-// 		.catch(err => console.log(err))
-// }
 
 // reducer
 const reducer = (state = [], action) => {

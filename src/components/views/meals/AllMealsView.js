@@ -20,7 +20,6 @@ const AllMealsView = (props) => {
         <button>Add</button>
         <button>Delete</button>
       </div>)}
-
     </div>
   )
 };
