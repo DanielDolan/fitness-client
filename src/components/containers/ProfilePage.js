@@ -2,8 +2,8 @@ import React, { Component } from "react";
 // import AuthFormContainer from './AuthFormContainer'
 
 class ProfilePage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: "",
       password: "",
@@ -11,11 +11,11 @@ class ProfilePage extends Component {
       firstName: ""
     }
   }
-  
+
   render() {
     return (
       <div>
-        <h1></h1>
+        <h1>{userEmail}</h1>
       </div>
     );
   }
