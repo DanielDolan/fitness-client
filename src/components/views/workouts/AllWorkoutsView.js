@@ -26,7 +26,8 @@ const AllWorkoutsView = props => {
           boxShadow: "0 10px 10px rgba(0,0,0,.7)",
           padding: "5px",
            }} alt={workout.name} />
-
+          
+          <br></br>
           <p>{workout.muscleGroup}</p>
           <p>{workout.description}</p>
 
