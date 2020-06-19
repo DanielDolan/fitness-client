@@ -1,17 +1,16 @@
 import React from "react";
-//import "../styles/WorkoutView.css";
+import WorkoutView from "./workouts/WorkoutView";
+import "../views/styles/ProfileView.css";
 
 const ProfileView = (props) => {
-  console.log(props)
+  console.log("ProfileView.js", props.profile.exercise)
   return (
     <div className="profile">
-      {props.profile.map(profile => (
-        <div key={profile.id}>
-          <h1>first name: {profile.firstName}</h1>
-        </div>
-      ))}
-
-
+      <h1>Profile:</h1>
+      <h3>{props.profile.firstName} {props.profile.lastName}</h3>
+      <p>{props.profile.email}</p>
+      
+      display workouts here
     </div>
   );
 };

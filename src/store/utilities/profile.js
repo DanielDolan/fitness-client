@@ -14,8 +14,8 @@ const fetchProfile = (profile) => {
 // Thunk Creators
 export const fetchProfileThunk = (id) => (dispatch) => {
   return axios
-    .get(`/api/user/${id}`)
-    //.get(`/api/user/1`)
+    //.get(`/api/user/${id}`)
+    .get(`/api/user/1`)
     .then((res) => res.data)
     .then((profile) => dispatch(fetchProfile(profile)))
     .catch((err) => console.log(err));

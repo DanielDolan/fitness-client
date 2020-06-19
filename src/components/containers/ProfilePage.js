@@ -7,16 +7,14 @@ import { ProfileView } from "../views/";
 //ProfileContainer
 class ProfilePage extends Component {
   componentDidMount() {
-    console.log(this.props);
-    this.props.fetchProfile();
+    this.props.fetchProfile(); //fix to pass in id of the current user
+    console.log("ProfilePage.js", this.props);
   }
 
   render() {
     return (
       <div className="profile-container">
-
-        <h1>This is a profile page</h1>
-        <ProfileView profile={this.props.profile} />;
+        <ProfileView profile={this.props.profile} />
       </div>
     );
   }

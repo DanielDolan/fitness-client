@@ -1,0 +1,9 @@
+.profile {
+    background-color: #282c34;
+    min-height: 100vh;
+    align-items: left;
+    justify-content: left;
+    color: white;
+    padding: 20px;
+}
+
