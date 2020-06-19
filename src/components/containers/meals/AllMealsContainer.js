@@ -5,7 +5,7 @@ import { debounce } from "lodash";
 import MealContainer from "./MealContainer"
 import axios from "axios"
 import { connect } from "react-redux";
-import {fetchAllMealsThunk} from '../../../thunks';
+import { fetchAllMealsThunk } from '../../../thunks';
 import AllMealsView from "../../views/meals/AllMealsView"
 
 
@@ -30,7 +30,7 @@ class AllMealsContainer extends Component {
   //   //this.props.fetchAllMeals(this.props.match.params.id)
   // }
 
-  handleTermChange=(searchTerm) => {
+  handleTermChange = (searchTerm) => {
     // const urlString = `https://api.edamam.com/search?q=${searchTerm.replace(
     //   /\s/g,
     //   "+"
@@ -47,21 +47,21 @@ class AllMealsContainer extends Component {
       console.log(searchTerm)
       console.log(this.props.match.params.searchTerm)
       this.props.fetchAllMeals(this.props.match.params.searchTerm)
-    } 
+    }
     else {
       // axios.get(mealsHome).then((result) => {
       //   id = result.data.hits[0].recipe.uri.substring(51)
       //   this.setState({ meals: result.data.hits })
       //   this.setState({ mealId: id })
       // });
-      this.props.fetchAllMeals()
+      // this.props.fetchAllMeals()
     }
   }
 
   render() {
     return (
       <div>
-        <div className="App-header">
+        <div className="all-meals-container">
           <h2>Meal Search</h2>
         </div>
         <SearchBar
@@ -76,7 +76,7 @@ class AllMealsContainer extends Component {
         />
         {/* <MealContainer meals={this.state.meals} /> */}
 
-        <AllMealsView meals={this.props.allMeals}/>
+        <AllMealsView meals={this.props.allMeals} />
       </div>
     );
   }
@@ -90,7 +90,8 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    fetchAllMeals: () => dispatch(fetchAllMealsThunk())
+    //fetchAllMeals: () => dispatch(fetchAllMealsThunk())
+    fetchAllMeals: (searchTerm) => dispatch(fetchAllMealsThunk(searchTerm))
   }
 }
 

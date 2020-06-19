@@ -20,14 +20,13 @@ const RECIPE_BASE = "http://www.edamam.com/ontologies/edamam.owl#recipe_"
 export const fetchMealThunk = (id) => (dispatch) => {
   return axios.get(BASE_URL, {
     params: {
-        r: `${RECIPE_BASE}${id}`,
-        app_id: API_ID,
-        app_key: API_KEY,
+      r: `${RECIPE_BASE}${id}`,
+      app_id: API_ID,
+      app_key: API_KEY,
     }
-}).then(res => res.data).then(recipe => {
-    // const meals = recipes.map(r => r.recipe)
+  }).then(res => res.data).then(recipe => {
     dispatch(fetchMeal(recipe[0]))
-})
+  })
     .catch(err => console.log(err))
 };
 

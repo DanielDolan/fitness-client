@@ -1,8 +1,6 @@
 import React from "react";
 import "../styles/meals/SingleMealView.css"
 
-
-
 const SingleMealView = (props) => {
   return (
     <div className="single-meal-view">
