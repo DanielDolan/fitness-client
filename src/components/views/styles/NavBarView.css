@@ -5,4 +5,6 @@ nav {
   .nav-link {
     padding: 1.5rem;
   }
-  
+  li {
+    display: inline;
+  }
