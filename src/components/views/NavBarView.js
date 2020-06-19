@@ -6,7 +6,7 @@ const NavBarView = (props) => {
   const displayLogin = (
       <>
       <Link to="/login" className="nav-link">
-        Login
+        Sign in
       </Link>
       <Link to="/signup" className="nav-link">
         Sign Up
@@ -14,6 +14,13 @@ const NavBarView = (props) => {
       </>
   );
   
+  const displayLogout = (
+    <><Link to="/signup" className="nav-link">
+         Log out
+      </Link>
+    </>
+  )
+
   return (
     <nav>
       <Link to="/" className="nav-link">
@@ -25,7 +32,10 @@ const NavBarView = (props) => {
       <Link to="/workouts" className="nav-link">
         Workouts
       </Link>
-      <>{ displayLogin }</>
+      <> {displayLogin} </>
+      <Link to="/logout" className="nav-link">
+        Sign out
+      </Link>
     </nav>
   );
 };

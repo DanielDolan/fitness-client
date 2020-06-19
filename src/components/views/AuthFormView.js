@@ -90,11 +90,20 @@ const AuthFormView = props => {
         </form>
     );
 
+    const displayLogout = (
+      <div>
+        <h1>Do you want to log out ?</h1>
+        <button type="submit" onClick={handleSubmit} name={name}>{displayName}</button>
+      </div>
+    )
+
     // if user is signed display login form, display sign up form otherwise
-    if(name == "login")
-      return ( <>{displayLogin}</> );
-    else
-      return ( <>{displaySignUp}</>);
+    if(name === "login")
+      return ( <>{ displayLogin }</> );
+    else if (name === "signup")
+      return ( <>{ displaySignUp }</>);
+    else 
+    return (<>{ displayLogout }</>)
   };
   
   export default AuthFormView;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import PropTypes from 'prop-types';
 // import { fetchAllWorkoutsThunk } from '../../../thunks';
 import { connect } from "react-redux";
-import { signup,login } from "../../thunks";
+import { signup, login, logout } from "../../thunks";
 import { AuthFormView } from "../views";
 
 // Smart container;
@@ -29,8 +29,13 @@ class AuthFormContainer extends Component {
     console.log("form name: ", formName)
     if (formName === "login"){
       this.props.login(this.state.email, this.state.password, formName);
-  } else
+    } else if (formName === "signup"){
       this.props.signup(this.state.firstName, this.state.lastName, this.state.email, this.state.password, formName);
+    }else{
+      console.log("logout reached")
+      this.props.logout();
+    }
+
   }
 
   render() {
@@ -71,25 +76,41 @@ const mapSignup = state => {
     error: state.user.error,
     firstName: state.user.firstName,
     lastsName: state.user.lastName,
-    isSigned: !!state.user.id,
     userEmail: state.user.email
+  };
+};
+
+const mapLogout = state => {
+  return {
+    name: "logout",
+    displayName: "Sign out",
+    error: state.user.error,
+    userEmail: state.user.email,
+    isLoggedIn: !!state.user.id
   };
 };
 
 // Map login dispatch to props;
 const mapDispatchLogin = dispatch => {
   return { 
-    login: (email, password, formName) => dispatch(login(email, password))
+    login: (email, password) => dispatch(login(email, password))
   }
 };
 
 // Map sign up dispatch
 const mapDispatchSignUp = dispatch =>{
   return { 
-    signup: (firstName, lastName, email, password, formName) => dispatch(signup(firstName, lastName, email, password))
+    signup: (firstName, lastName, email, password) => dispatch(signup(firstName, lastName, email, password))
   }
 };
+
+const mapDispatchLogout = dispatch => {
+  return {
+    logout: () => dispatch(logout())
+  }
+}
 
 
 export const Login = connect(mapLogin, mapDispatchLogin)(AuthFormContainer);
 export const Signup = connect(mapSignup, mapDispatchSignUp)(AuthFormContainer);
+export const Logout = connect(mapLogout, mapDispatchLogout)(AuthFormContainer);
