@@ -26,7 +26,7 @@ class NavBarContainer extends Component {
   }
 
   render() {
-    return <NavBarView firstName={this.props.firstName} isLoggedIn={this.state.isLoggedIn}/>;
+    return <NavBarView firstName={this.props.firstName} isLoggedIn={this.props.isLoggedIn}/>;
   }
 }
 

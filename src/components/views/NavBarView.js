@@ -23,7 +23,7 @@ const NavBarView = (props) => {
   
   const displayLogout = (
     <>
-      <h1>{firstName}</h1>
+      <h3>hello, {firstName}</h3>
       <Link to="/logout" className="nav-link">
          Log out
       </Link>
@@ -43,7 +43,7 @@ const NavBarView = (props) => {
       </Link>
       {/* <> {displayLogin} </>
       <> {displayLogout} </> */}
-      <> {isLoggedIn? displayLogin : displayLogout}</>
+      <> {isLoggedIn? displayLogout : displayLogin}</>
     </nav>
   );
 };
