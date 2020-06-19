@@ -2,7 +2,14 @@ import React from "react";
 import "./styles/NavBarView.css";
 import { Link } from "react-router-dom";
 
+
 const NavBarView = (props) => {
+  const { 
+    firstName, 
+    isLoggedIn} = props;
+
+    console.log(isLoggedIn)
+    console.log(firstName)
   const displayLogin = (
       <>
       <Link to="/login" className="nav-link">
@@ -15,7 +22,9 @@ const NavBarView = (props) => {
   );
   
   const displayLogout = (
-    <><Link to="/signup" className="nav-link">
+    <>
+      <h1>{firstName}</h1>
+      <Link to="/logout" className="nav-link">
          Log out
       </Link>
     </>
@@ -32,10 +41,9 @@ const NavBarView = (props) => {
       <Link to="/workouts" className="nav-link">
         Workouts
       </Link>
-      <> {displayLogin} </>
-      <Link to="/logout" className="nav-link">
-        Sign out
-      </Link>
+      {/* <> {displayLogin} </>
+      <> {displayLogout} </> */}
+      <> {isLoggedIn? displayLogin : displayLogout}</>
     </nav>
   );
 };

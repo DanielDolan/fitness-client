@@ -22,7 +22,7 @@ const removeUser = () => {
 export const me = () => async dispatch => {
   try {
     const res = await axios.get("http://localhost:3001/auth/me", { withCredentials: true });
-    dispatch(getUser(res.data || {}));
+    return dispatch(getUser(res.data || {}));
   }
   catch (err) {
     console.log(err)
