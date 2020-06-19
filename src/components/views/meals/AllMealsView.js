@@ -16,7 +16,7 @@ const AllMealsView = (props) => {
           display: "block",
           boxShadow: "0 10px 10px rgba(0,0,0,.7)",
           padding: "5px",
-        }} alt="picture of food" />
+        }} alt={meal.label} />
         <button>Add</button>
         <button>Delete</button>
       </div>)}

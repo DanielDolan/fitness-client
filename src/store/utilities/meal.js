@@ -18,6 +18,7 @@ const RECIPE_BASE = "http://www.edamam.com/ontologies/edamam.owl#recipe_"
 
 // Thunk Creators
 export const fetchMealThunk = (id) => (dispatch) => {
+  console.log("id", id)
   return axios.get(BASE_URL, {
     params: {
       r: `${RECIPE_BASE}${id}`,
