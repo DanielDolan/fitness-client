@@ -10,7 +10,7 @@ const AllMealsView = (props) => {
         <Link to={`/meals/${meal.uri.substring(51)}`}>
         <h1>{meal.label}</h1>
         </Link>
-        <p>Total Calories: {meal.calories}</p>
+        <p>Total Calories: {Math.round(meal.calories)}</p>
         <img src={meal.image} style={{
               width: "300px",
               height: "300px",
