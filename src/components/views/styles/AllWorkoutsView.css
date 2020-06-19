@@ -1,26 +1,27 @@
-.all-workouts {
+/* .all-workouts {
   box-shadow: 2px 2px 4px 0 #ccc;
   box-sizing: border-box;
   display: inline-block;
   margin: 0 0 1.5em;
   padding: 1em;
   width: 100%;
-} 
+}  */
 
 .all-workouts img {
   width: 100%;
 }
 
-.all-workouts div {
+.workout-card {
   column-gap: 1.5em;
-  margin: 1.5em 1.5em; 
   padding: 10px;
   display: inline-block;
+  width: 50%;
+  word-break: break-word;
 }
 
 .all-workouts p {
   font-size: 1vw;
-  word-break: break-all;
+  width: 60%;
 }
 
 /* input {
