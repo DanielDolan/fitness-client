@@ -1,34 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
- import { SingleMealView } from "../../views"
+import { SingleMealView } from "../../views"
 import { fetchMealThunk } from "../../../thunks";
-import axios from "axios";
-// import MealContainer from "./MealContainer"
-import MealCard from "./MealCard"
-
-
-// const apiKey = process.env.REACT_APP_API_KEY;
-// const apiID = process.env.REACT_APP_API_ID;
-// const mealsHome = "https://api.edamam.com/search?q=chicken&app_id="+apiID+"&app_key="+apiKey
 
 class SingleMealContainer extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     meal: {}
-  //   }
-  // }
-
   componentDidMount() {
     this.props.fetchMeal(this.props.match.params.id)
   }
 
   render() {
-    
     return (
       <div className="single-meal-container">
         <SingleMealView meal={this.props.meal} />
-        {console.log(this.props.meal)}
       </div>
     );
   }
