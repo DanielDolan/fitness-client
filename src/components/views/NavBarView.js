@@ -3,6 +3,17 @@ import "./styles/NavBarView.css";
 import { Link } from "react-router-dom";
 
 const NavBarView = (props) => {
+  const displayLogin = (
+      <>
+      <Link to="/login" className="nav-link">
+        Login
+      </Link>
+      <Link to="/signup" className="nav-link">
+        Sign Up
+      </Link>
+      </>
+  );
+  
   return (
     <nav>
       <Link to="/" className="nav-link">
@@ -14,12 +25,7 @@ const NavBarView = (props) => {
       <Link to="/workouts" className="nav-link">
         Workouts
       </Link>
-      <Link to="/login" className="nav-link">
-        Login
-      </Link>
-      <Link to="/signup" className="nav-link">
-        Sign Up
-      </Link>
+      <>{ displayLogin }</>
     </nav>
   );
 };
