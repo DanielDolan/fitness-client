@@ -7,3 +7,4 @@ export { default as MealContainer } from './meals/MealContainer';
 export { default as NavBarContainer } from "./NavBarContainer";
 export { default as SingleMealContainer } from './meals/SingleMealContainer';
 export { Login, Signup } from "./AuthFormContainer";
+export { default as ProfilePage } from "./ProfilePage";
