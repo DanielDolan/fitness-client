@@ -18,7 +18,7 @@ class AuthFormContainer extends Component {
       firstName: "",
       weight: 0,
       weightGoal: 0,
-      height: 0,
+      height: "",
       age: 0,
       birthday: "",
       // userImage: Image,

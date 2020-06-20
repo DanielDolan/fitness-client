@@ -105,7 +105,7 @@ const AuthFormView = props => {
             <label htmlFor="height">
               <small>Height</small>
             </label>
-            <input name="height" type="number" onChange={handleChange} />
+            <input name="height" type="text" onChange={handleChange} />
           </div>
           <div>
             <button type="submit">{displayName}</button>
