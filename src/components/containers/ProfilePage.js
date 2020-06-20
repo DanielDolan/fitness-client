@@ -18,7 +18,8 @@ class ProfilePage extends Component {
       age: 0,
       birthday: "",
       // userImage: Image,
-      rediretLogin: false
+      rediretLogin: false,
+      isLoggedIn: false,
     }
   }
   componentDidMount() {
@@ -26,15 +27,51 @@ class ProfilePage extends Component {
     console.log(this.props.firstName);
   }
 
+
+
   render() {
+
+    function signedIn(){
+    if(this.props.isLoggedIn){
+console.log("logged in")
+      // <div>
+      //   <h1>Welcome, {this.props.fstName}!</h1>
+      //   {/* <h1>last name {this.props.lastName}</h1> */}
+
+      //   {/* card of stats hugging the top right */}
+      //   <p>Starting Weight: {this.props.weight}</p>
+      //   <p>Weight Goal: {this.props.weightGoal}</p>
+      //   <p>Age: {this.props.age}</p>
+
+
+      //   {/* <h1>birthday {this.props.birthday}</h1> */}
+      //   <h1>Saved Meals</h1>      {/* hugging left side */}
+      //   <h1>Saved Workouts</h1> {/* hugging right side */}
+      // </div>
+    }
+    else{
+      console.log("not signed in")
+    }
+    }
+
+
+
     return (
-      <div>``
-        <h1>first name {this.props.firstName}</h1>
-        <h1>last name {this.props.lastName}</h1>
-        <h1>weight {this.props.weight}</h1>
-        <h1>weight goal {this.props.weightGoal}</h1>
-        <h1>age {this.props.age}</h1>
-        <h1>birthday {this.props.birthday}</h1>
+      
+      <div>
+        {signedIn()}
+        <h1>Welcome, {this.props.firstName}!</h1>
+        {/* <h1>last name {this.props.lastName}</h1> */}
+
+        {/* card of stats hugging the top right */}
+        <p>Starting Weight: {this.props.weight}</p>
+        <p>Weight Goal: {this.props.weightGoal}</p>
+        <p>Age: {this.props.age}</p>
+
+
+        {/* <h1>birthday {this.props.birthday}</h1> */}
+        <h1>Saved Meals</h1>      {/* hugging left side */}
+        <h1>Saved Workouts</h1> {/* hugging right side */}
       </div>
     );
   }
