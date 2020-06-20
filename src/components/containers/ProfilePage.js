@@ -12,6 +12,12 @@ class ProfilePage extends Component {
       password: "",
       lastName: "",
       firstName: "",
+      weight: 0,
+      weightGoal: 0,
+      height: 0,
+      age: 0,
+      birthday: "",
+      // userImage: Image,
       rediretLogin: false
     }
   }
@@ -22,8 +28,13 @@ class ProfilePage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.props.firstName}</h1>
+      <div>``
+        <h1>first name {this.props.firstName}</h1>
+        <h1>last name {this.props.lastName}</h1>
+        <h1>weight {this.props.weight}</h1>
+        <h1>weight goal {this.props.weightGoal}</h1>
+        <h1>age {this.props.age}</h1>
+        <h1>birthday {this.props.birthday}</h1>
       </div>
     );
   }
@@ -39,6 +50,12 @@ const mapUser = state => {
     displayName: "User",
     error: state.user.error,
     firstName: state.user.firstName,
+    lastName: state.user.lastName,
+    weight: state.user.weight,
+    weightGoal: state.user.weightGoal,
+    height: state.user.height,
+    age: state.user.age,
+    birthday: state.user.birthday,
     isLoggedIn: !!state.user.id
   };
 };

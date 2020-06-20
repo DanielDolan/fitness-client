@@ -2,10 +2,10 @@ import React from "react";
 
 const AuthFormView = props => {
     const { 
-      firstName,
-      lastName,
-      // // picture,
-      password,
+      // firstName,
+      // lastName,
+      // picture,
+      // password,
       // height,
       // weight,
       // weightGoal,
@@ -48,6 +48,18 @@ const AuthFormView = props => {
     const displaySignUp = (
       <form onSubmit={handleSubmit} name={name}>
           <div>
+            <label htmlFor="email">
+              <small>Email</small>
+            </label>
+            <input name="email" type="text" onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" onChange={handleChange} />
+          </div>
+          <div>
             <label htmlFor="firstName">
               <small>First Name</small>
             </label>
@@ -66,23 +78,35 @@ const AuthFormView = props => {
             <input name="picture" type="image" onChange={handleChange} />
           </div> */}
           <div>
-            <label htmlFor="email">
-              <small>Email</small>
+            <label htmlFor="weight">
+              <small>Weight</small>
             </label>
-            <input name="email" type="text" onChange={handleChange} />
+            <input name="weight" type="number" onChange={handleChange} />
           </div>
           <div>
-            <label htmlFor="password">
-              <small>Password</small>
+            <label htmlFor="weightGoal">
+              <small>weightGoal</small>
             </label>
-            <input name="password" type="password" onChange={handleChange} />
+            <input name="weightGoal" type="number" onChange={handleChange} />
           </div>
-          {/* <div>
+          <div>
+            <label htmlFor="age">
+              <small>Age</small>
+            </label>
+            <input name="age" type="number" onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="birthday">
+              <small>Birthday</small>
+            </label>
+            <input name="birthday" type="text" onChange={handleChange} />
+          </div>
+          <div>
             <label htmlFor="height">
               <small>Height</small>
             </label>
             <input name="height" type="number" onChange={handleChange} />
-          </div> */}
+          </div>
           <div>
             <button type="submit">{displayName}</button>
           </div>
