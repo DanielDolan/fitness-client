@@ -23,7 +23,7 @@ class ProfilePage extends Component {
   render() {
     return (
       <div>
-        <h1>{this.props.firstName}</h1>
+        <h1>Hello {this.props.firstName}</h1>
       </div>
     );
   }
