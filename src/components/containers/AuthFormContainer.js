@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signup, login, logout } from "../../thunks";
 import { AuthFormView } from "../views";
+import { Redirect } from 'react-router-dom'
 // import  ProfilePage  from './ProfilePage'
 
 // Smart container;
@@ -14,7 +15,9 @@ class AuthFormContainer extends Component {
       email: "",
       password: "",
       lastName: "",
-      firstName: ""
+      firstName: "",
+      redirectToHome: false,
+      redirectToProfile: false
     }
   }
 
@@ -27,19 +30,27 @@ class AuthFormContainer extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const formName = event.target.name;
-    console.log("form name: ", formName)
     if (formName === "login"){
       this.props.login(this.state.email, this.state.password, formName);
+      this.setState({redirectToProfile: true});
     } else if (formName === "signup"){
       this.props.signup(this.state.firstName, this.state.lastName, this.state.email, this.state.password, formName);
+      this.setState({redirectToProfile: true})
     }else{
-      console.log("logout reached")
       this.props.logout();
+      this.setState({redirectToHome: true})
     }
 
   }
 
   render() {
+    console.log("redirect status:",this.state.redirect)
+    if (this.state.redirectToHome) {
+      return (<Redirect to="/"/>)
+    }
+    if (this.state.redirectToProfile) {
+      return (<Redirect to="/profile"/>)
+    }
     return (
       <>
       <AuthFormView
