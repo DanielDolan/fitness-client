@@ -33,6 +33,7 @@ class ProfilePage extends Component {
         <h1>last name {this.props.lastName}</h1>
         <h1>weight {this.props.weight}</h1>
         <h1>weight goal {this.props.weightGoal}</h1>
+        <h1>height {this.props.height}</h1>
         <h1>age {this.props.age}</h1>
         <h1>birthday {this.props.birthday}</h1>
       </div>
