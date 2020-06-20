@@ -92,7 +92,7 @@ const AuthFormView = props => {
 
     const displayLogout = (
       <div>
-        <h1>Do you want to log out ?</h1>
+        <h2>Do you want to log out ?</h2>
         <button type="submit" onClick={handleSubmit} name={name}>{displayName}</button>
       </div>
     )
