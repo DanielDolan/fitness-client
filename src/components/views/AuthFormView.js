@@ -2,7 +2,7 @@ import React from "react";
 
 const AuthFormView = props => {
     const { 
-      fistName,
+      firstName,
       lastName,
       // // picture,
       password,
@@ -96,7 +96,7 @@ const AuthFormView = props => {
         <button type="submit" onClick={handleSubmit} name={name}>{displayName}</button>
       </div>
     )
-
+    //console.log("error in view page ", error && error.response && error.response.data)
     // if user is signed display login form, display sign up form otherwise
     if(name === "login")
       return ( <>{ displayLogin }</> );

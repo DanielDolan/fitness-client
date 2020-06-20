@@ -17,10 +17,12 @@ class AuthFormContainer extends Component {
       lastName: "",
       firstName: "",
       redirectToHome: false,
-      redirectToProfile: false
+      redirectToProfile: false,
+      isLogInSuccessful: true
     }
   }
 
+  
   // handle the input text change
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -30,25 +32,29 @@ class AuthFormContainer extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const formName = event.target.name;
-    if (formName === "login"){
-      this.props.login(this.state.email, this.state.password, formName);
-      this.setState({redirectToProfile: true});
-    } else if (formName === "signup"){
-      this.props.signup(this.state.firstName, this.state.lastName, this.state.email, this.state.password, formName);
-      this.setState({redirectToProfile: true})
-    }else{
-      this.props.logout();
-      this.setState({redirectToHome: true})
+    try{
+      if (formName === "login"){
+        this.props.login(this.state.email, this.state.password, formName);
+        this.setState({redirectToProfile: true});
+      } else if (formName === "signup"){
+        this.props.signup(this.state.firstName, this.state.lastName, this.state.email, this.state.password, formName);
+        this.setState({redirectToProfile: true})
+      }else{
+        this.props.logout();
+        this.setState({redirectToHome: true})
+      }
+    }catch(error){
+      this.setState({isLogInSuccessful: false})
+      console.log("error reached")
     }
 
   }
 
   render() {
-    console.log("redirect status:",this.state.redirect)
     if (this.state.redirectToHome) {
       return (<Redirect to="/"/>)
     }
-    if (this.state.redirectToProfile) {
+    if (this.state.redirectToProfile && this.props.isLoggedIn) {
       return (<Redirect to="/profile"/>)
     }
     return (
