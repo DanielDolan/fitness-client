@@ -45,12 +45,12 @@ class AuthFormContainer extends Component {
       }
     }catch(error){
       this.setState({isLogInSuccessful: false})
-      console.log("error reached")
     }
 
   }
 
   render() {
+    console.log("is logged In", this.props.isLoggedIn)
     if (this.state.redirectToHome) {
       return (<Redirect to="/"/>)
     }
@@ -96,7 +96,8 @@ const mapSignup = state => {
     error: state.user.error,
     firstName: state.user.firstName,
     lastsName: state.user.lastName,
-    userEmail: state.user.email
+    userEmail: state.user.email,
+    isLoggedIn: !!state.user.id
   };
 };
 
