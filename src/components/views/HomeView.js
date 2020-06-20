@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles/HomeView.css";
 // import { Link } from "react-router-dom";
-
 const HomeView = props => {
   return (
     <div className="home">
@@ -13,12 +12,14 @@ const HomeView = props => {
       <br></br>
       <h4>Each Workout and Meal Comes with step by step guide</h4>
       <br></br>
-      <h3>3 Easy Steps</h3>
-      <ul>
-        <li>Signup for free</li>
-        <li>Add Meals and Workouts based on your goals</li>
-        <li>Check your Profile to see your saved Meals and Workouts</li>
-      </ul>
+      <h3><u>3 Easy Steps </u></h3>
+      <p>
+        <b>1.</b>Signup for free <br> 
+        </br>
+        <b>2.</b>Add Meals and Workouts based on your goals <br> 
+        </br>
+        <b>3.</b> Check your Profile to see your saved Meals and Workouts
+      </p>
       <br></br>
     
       <br></br>

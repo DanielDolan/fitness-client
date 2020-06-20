@@ -31,21 +31,21 @@ const NavBarView = (props) => {
   )
 
   return (
-    <ul id="mainMenu"> 
+    <nav className="navbar  mb-3">
       <Link to="/" className="nav-link">
-        <li>Home</li>
+        Home
       </Link>
       <Link to="/meals" className="nav-link">
-        <li>Meals </li>
+        Meals 
       </Link>
       <Link to="/workouts" className="nav-link">
-        <li>Workouts</li>
+        Workouts
       </Link>
       <> {isLoggedIn? displayLogout : displayLogin}</>
       <Link to="/profile" className="nav-link">
-        <li> Profile</li>
+         Profile
       </Link>
-      </ul>
+      </nav>
   );
 };
 
