@@ -16,9 +16,14 @@ class AuthFormContainer extends Component {
       password: "",
       lastName: "",
       firstName: "",
+      weight: 0,
+      weightGoal: 0,
+      height: 0,
+      age: 0,
+      birthday: "",
+      // userImage: Image,
       redirectToHome: false,
       redirectToProfile: false,
-      isLogInSuccessful: true
     }
   }
 
@@ -32,19 +37,16 @@ class AuthFormContainer extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const formName = event.target.name;
-    try{
-      if (formName === "login"){
-        this.props.login(this.state.email, this.state.password, formName);
-        this.setState({redirectToProfile: true});
-      } else if (formName === "signup"){
-        this.props.signup(this.state.firstName, this.state.lastName, this.state.email, this.state.password, formName);
-        this.setState({redirectToProfile: true})
-      }else{
-        this.props.logout();
-        this.setState({redirectToHome: true})
-      }
-    }catch(error){
-      this.setState({isLogInSuccessful: false})
+    if (formName === "login"){
+      this.props.login(this.state.email, this.state.password, formName);
+      this.setState({redirectToProfile: true});
+    } else if (formName === "signup"){
+      this.props.signup(this.state.firstName, this.state.lastName, this.state.email, this.state.password, this.state.weight, 
+        this.state.weightGoal, this.state.height, this.state.age, this.state.birthday, formName);
+      this.setState({redirectToProfile: true})
+    }else{
+      this.props.logout();
+      this.setState({redirectToHome: true})
     }
 
   }
@@ -70,6 +72,12 @@ class AuthFormContainer extends Component {
         isLoggedIn={this.props.isLoggedIn}
         isSigned={this.props.isSigned}
         userEmail={this.props.userEmail}
+        weight={this.props.weight}
+        weightGoal={this.props.weightGoal}
+        height={this.props.height}
+        age={this.props.age}
+        birthday={this.props.birthday}
+        // userImage={this.props.userImage}
       />
       </>
     );
@@ -97,7 +105,13 @@ const mapSignup = state => {
     firstName: state.user.firstName,
     lastsName: state.user.lastName,
     userEmail: state.user.email,
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    weight: state.user.weight,
+    weightGoal: state.user.weightGoal,
+    height: state.user.height,
+    age: state.user.age,
+    birthday: state.user.birthday,
+    // userImage: state.user.userImage
   };
 };
 
@@ -121,7 +135,8 @@ const mapDispatchLogin = dispatch => {
 // Map sign up dispatch
 const mapDispatchSignUp = dispatch =>{
   return { 
-    signup: (firstName, lastName, email, password) => dispatch(signup(firstName, lastName, email, password))
+    signup: (firstName, lastName, email, password, weight, weightGoal,height,age,birthday) => dispatch(signup(
+      firstName, lastName, email, password, weight, weightGoal,height,age,birthday))
   }
 };
 

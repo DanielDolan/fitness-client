@@ -30,10 +30,10 @@ export const me = () => async dispatch => {
   }
 };
 
-export const signup = (firstName, lastName, email, password) => async dispatch => {
+export const signup = (firstName, lastName, email, password, weight, weightGoal,height,age,birthday,userImage) => async dispatch => {
   let res;
   try {
-    res = await axios.post(`http://localhost:3001/auth/signup`, { firstName, lastName, email, password }, { withCredentials: true });
+    res = await axios.post(`http://localhost:3001/auth/signup`, { firstName, lastName, email, password, weight, weightGoal,height,age,birthday,userImage}, { withCredentials: true });
   }
   catch (authError) {
     console.log("post error")
