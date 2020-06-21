@@ -32,7 +32,7 @@ class ProfilePage extends Component {
   render() {
     const displayWhenLogIn = (
       <div>
-          <h1>Welcome, {this.props.fstName}!</h1>
+          <h1>Welcome, {this.props.firstName}!</h1>
           {/* <h1>last name {this.props.lastName}</h1> */}
           {/* card of stats hugging the top right */}
           <p>Starting Weight: {this.props.weight}</p>
@@ -42,7 +42,11 @@ class ProfilePage extends Component {
 
          {/* <h1>birthday {this.props.birthday}</h1> */}
           <h1>Saved Meals</h1>      {/* hugging left side */}
+
+
           <h1>Saved Workouts</h1> {/* hugging right side */}
+
+          
       </div>
     );
     const displayWhenNeedSignin = (
