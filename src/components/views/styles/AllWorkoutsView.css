@@ -10,20 +10,27 @@
 .all-workouts img {
   width: 100%;
 }
+
 .all-workouts{
-  background-color: pink;
+  background-color: #d0e6f2;
 }
 
-.workout-card {
+.workout-card-view {
   column-gap: 1.5em;
-  padding: 50px;
+  padding: 30px;
   display: inline-block;
   width: 50%;
   word-break: break-word;
 }
 
+.workout-card-view h2 {
+  font-size: 2vw;
+  color: #145374;
+  word-break: break-word;
+  text-decoration: none;
+}
+
 .all-workouts p {
-  font-size: 1vw;
   width: 60%;
 }
 

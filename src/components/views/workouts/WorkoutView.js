@@ -10,14 +10,14 @@ const WorkoutView = (props) => {
         objectFit: "fit",
         display: "block",
         boxShadow: "0 10px 10px rgba(0,0,0,.7)",
-        padding: "10px",
+        padding: "5px",
       }} alt={props.name}
       />
       <br></br>
       <h1>{props.workout.name}</h1>
-      <p>targeted muscle group: {props.workout.muscleGroup}</p>
-      <p>description: {props.workout.description}</p>
-      <p>recommended reps: {props.workout.recomendedReps}</p>
+      <p>Targeted Muscle Group: {props.workout.muscleGroup}</p>
+      <p>Description: {props.workout.description}</p>
+      <p>Recommended Reps: {props.workout.recomendedReps}</p>
 
       {/* add to profile button */}
       {/* remove from profile button */}

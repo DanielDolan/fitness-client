@@ -5,7 +5,7 @@ const HomeView = props => {
   return (
     <div className="home">
       <h1>Conditioning and Cooking (Name of website)</h1>
-      <h4>An online planner to keep track of perosnal Fitness and Diet</h4>
+      <h4>An online planner to keep track of personal Fitness and Diet</h4>
       <br></br>
       <h5>Rated 10/10 by over 3 people!</h5>
       <h5>Join over 7 users today!</h5>
@@ -14,14 +14,14 @@ const HomeView = props => {
       <br></br>
       <h3><u>3 Easy Steps </u></h3>
       <p>
-        <b>1.</b>Signup for free <br> 
+        <b>1. </b>Signup for free <br>
         </br>
-        <b>2.</b>Add Meals and Workouts based on your goals <br> 
+        <b>2. </b>Add Meals and Workouts based on your goals <br>
         </br>
-        <b>3.</b> Check your Profile to see your saved Meals and Workouts
+        <b>3. </b> Check your Profile to see your saved Meals and Workouts
       </p>
       <br></br>
-    
+
       <br></br>
       <br></br>
       <br></br>

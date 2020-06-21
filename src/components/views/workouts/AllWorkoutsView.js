@@ -15,9 +15,9 @@ const AllWorkoutsView = props => {
 
     <div className="all-workouts">
       {props.allWorkouts.map(workout => (
-        <div class="workout-card" key={workout.id}>
+        <div class="workout-card-view" key={workout.id}>
           <Link to={`/workouts/${workout.id}`}>
-            <h1>{workout.name}</h1>
+            <h2>{workout.name}</h2>
           </Link>
           <img src={workout.imageUrl} style={{
           width: "300px",
@@ -32,7 +32,7 @@ const AllWorkoutsView = props => {
           <p>{workout.muscleGroup}</p>
           <p>{workout.description}</p>
 
-          <button>Add</button>
+          <button>Add</button> {}
           <button>Delete</button>
         </div>
       ))}

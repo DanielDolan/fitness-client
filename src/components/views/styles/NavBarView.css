@@ -1,3 +1,26 @@
-.navbar{
-  background-color: lightcyan;
+.navbar {
+  background-color: #00334e;
+}
+
+a.nav-link {
+  color: white;
+}
+
+a.nav-link:hover {
+  color: #5588a3;
+}
+
+a.nav-link-user {
+  color: white;
+  text-decoration: none;
+}
+
+a.nav-link-user:hover {
+  color: #5588a3;
+  text-decoration: none;
+}
+
+/* style for "hello, {firstName}" */
+.name {
+  color: white;
 }
