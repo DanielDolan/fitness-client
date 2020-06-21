@@ -15,7 +15,7 @@ class ProfilePage extends Component {
       firstName: "",
       weight: 0,
       weightGoal: 0,
-      height: 0,
+      height: "",
       age: 0,
       birthday: "",
       // userImage: Image,
@@ -33,10 +33,10 @@ class ProfilePage extends Component {
         <h2>Name: {this.props.firstName} {this.props.lastName}</h2>
         {/* <h1>first name {this.props.firstName}</h1>
         <h1>last name {this.props.lastName}</h1> */}
-        <p>Weight {this.props.weight}</p>
+        <p>Weight: {this.props.weight}</p>
         <p>Weight Goal: {this.props.weightGoal}</p>
         <p>Age: {this.props.age}</p>
-        <p>Birthday {this.props.birthday}</p>
+        <p>Birthday: {this.props.birthday}</p>
       </div>
     );
   }
