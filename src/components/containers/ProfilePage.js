@@ -19,7 +19,8 @@ class ProfilePage extends Component {
       age: 0,
       birthday: "",
       // userImage: Image,
-      rediretLogin: false
+      rediretLogin: false,
+      isLoggedIn: false,
     }
   }
   componentDidMount() {
@@ -27,17 +28,63 @@ class ProfilePage extends Component {
     console.log(this.props.firstName);
   }
 
+
+
   render() {
-    return (
-      <div className="profile-page-view">
-        <h2>Name: {this.props.firstName} {this.props.lastName}</h2>
-        {/* <h1>first name {this.props.firstName}</h1>
-        <h1>last name {this.props.lastName}</h1> */}
-        <p>Weight: {this.props.weight}</p>
-        <p>Weight Goal: {this.props.weightGoal}</p>
-        <p>Age: {this.props.age}</p>
-        <p>Birthday: {this.props.birthday}</p>
+
+    const displayWhenLogIn = (
+      <div>
+          <h1>Welcome, {this.props.firstName}!</h1>
+          {/* <h1>last name {this.props.lastName}</h1> */}
+          {/* card of stats hugging the top right */}
+          <p>Starting Weight: {this.props.weight}</p>
+          <p>Weight Goal: {this.props.weightGoal}</p>
+          <p>Age: {this.props.age}</p>
+
+
+         {/* <h1>birthday {this.props.birthday}</h1> */}
+          <h1>Saved Meals</h1>      {/* hugging left side */}
+
+
+          <h1>Saved Workouts</h1> {/* hugging right side */}
+
+          
       </div>
+    );
+    const displayWhenNeedSignin = (
+      <div>
+        <h1>Please sign in first</h1>
+
+      </div>
+    )
+
+//     function signedIn(){
+//     if(this.props.isLoggedIn){
+// console.log("logged in")
+//       // <div>
+//       //   <h1>Welcome, {this.props.fstName}!</h1>
+//       //   {/* <h1>last name {this.props.lastName}</h1> */}
+
+//       //   {/* card of stats hugging the top right */}
+//       //   <p>Starting Weight: {this.props.weight}</p>
+//       //   <p>Weight Goal: {this.props.weightGoal}</p>
+//       //   <p>Age: {this.props.age}</p>
+
+
+//       //   {/* <h1>birthday {this.props.birthday}</h1> */}
+//       //   <h1>Saved Meals</h1>      {/* hugging left side */}
+//       //   <h1>Saved Workouts</h1> {/* hugging right side */}
+//       // </div>
+//     }
+//     else{
+//       console.log("not signed in")
+//     }
+//     }
+
+
+
+    return (
+    <>{this.props.isLoggedIn? displayWhenLogIn:displayWhenNeedSignin}</>
     );
   }
 
