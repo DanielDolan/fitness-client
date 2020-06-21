@@ -14,14 +14,14 @@ const HomeView = props => {
       <br></br>
       <h3><u>3 Easy Steps </u></h3>
       <p>
-        <b>1. </b>Signup for free <br> 
+        <b>1. </b>Signup for free <br>
         </br>
-        <b>2. </b>Add Meals and Workouts based on your goals <br> 
+        <b>2. </b>Add Meals and Workouts based on your goals <br>
         </br>
         <b>3. </b> Check your Profile to see your saved Meals and Workouts
       </p>
       <br></br>
-    
+
       <br></br>
       <br></br>
       <br></br>

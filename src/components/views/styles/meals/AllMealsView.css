@@ -12,7 +12,7 @@
 
 .meal-card-view {
   column-gap: 1.5em;
-  padding: 10px;
+  padding: 30px;
   display: inline-block;
   width: 50%;
   word-break: break-word;
@@ -24,13 +24,14 @@ a.meal-link {
 }
 
 .meal-card-view h2 {
-  font-size: 3vw;
+  font-size: 2vw;
   color: #145374;
+  word-break: break-word;
   text-decoration: none;
 }
 
 .all-meals{
-  background-color: #ddf3f5 ;
+  background-color: #d0e6f2 ;
 }
 
 /* .meal-container {
@@ -45,6 +46,6 @@ input {
   height: 50px;
   margin: 5px;
   text-align: left;
-  width: 50%;
+  width: 30%;
   padding-left: 10px;
 }

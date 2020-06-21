@@ -1,6 +1,7 @@
 .profile-page-view {
-  background-color: #ddf3f5;
+  background-color: #d0e6f2;
   padding: 20px;
+  min-height: 100vh;
 }
 
 .profile-page-view h2 {
