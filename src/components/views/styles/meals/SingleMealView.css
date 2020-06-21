@@ -1,12 +1,27 @@
 .single-meal-view {
-    background-color: lightgoldenrodyellow;
-    min-height: 100vh;
-    /* display: flex; */
-    /* flex-direction: column; */
-    align-items: left;
-    justify-content: left;
-    /* font-size: calc(10px + 2vmin); */
-    color:black;
-    padding: 20px;
+  background-color: #d0e6f2;
+  min-height: 100vh;
+  /* display: flex; */
+  /* flex-direction: column; */
+  align-items: left;
+  justify-content: left;
+  /* font-size: calc(10px + 2vmin); */
+  color:black;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.single-meal-view h1 {
+  font-size: 3vw;
+  color: #145374;
+  text-decoration: none;
+}
+
+.single-meal-view p {
+  color: #145374;
+}
+
+.single-meal-view a {
+  color: black
 }
 

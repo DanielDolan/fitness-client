@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { me } from "../../thunks";
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
+import "../views/styles/ProfilePageView.css"
 // import AuthFormContainer from './AuthFormContainer'
 
 class ProfilePage extends Component {
@@ -30,6 +31,7 @@ class ProfilePage extends Component {
 
 
   render() {
+
     const displayWhenLogIn = (
       <div>
           <h1>Welcome, {this.props.firstName}!</h1>
@@ -52,6 +54,7 @@ class ProfilePage extends Component {
     const displayWhenNeedSignin = (
       <div>
         <h1>Please sign in first</h1>
+
       </div>
     )
 

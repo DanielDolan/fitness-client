@@ -1,12 +1,12 @@
 .workout {
-  background-color:lightskyblue;
+  background-color: #d0e6f2;
   min-height: 100vh;
   /* display: flex; */
   /* flex-direction: column; */
   align-items: left;
   justify-content: left;
   /* font-size: calc(10px + 2vmin); */
-  color: white;
+  color: #145374;
   padding: 20px;
 }
 

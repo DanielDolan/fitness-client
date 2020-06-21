@@ -5,7 +5,7 @@ const AllMealsView = (props) => {
   return (
     <div className="all-meals">
       {props.meals.map(meal =>
-        <div class="meal-card" key={meal.uri}>
+        <div class="meal-card-view" key={meal.uri}>
           <Link to={`/meals/${meal.uri.substring(51)}`}>
             <h2>{meal.label}</h2>
           </Link>
@@ -20,7 +20,7 @@ const AllMealsView = (props) => {
           }} alt={meal.label} />
 
           <br></br>
-          <button>Add</button>
+          <button>Add</button> {}
           <button>Delete</button>
         </div>)}
     </div>
