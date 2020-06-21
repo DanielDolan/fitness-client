@@ -1,0 +1,11 @@
+.profile-page-view {
+  background-color: #ddf3f5;
+  padding: 20px;
+}
+
+.profile-page-view h2 {
+  font-size: 3vw;
+  color: #145374;
+  text-decoration: none;
+  padding-bottom: 5px;
+}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { me } from "../../thunks";
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
+import "../views/styles/ProfilePageView.css"
 // import AuthFormContainer from './AuthFormContainer'
 
 class ProfilePage extends Component {
@@ -28,13 +29,14 @@ class ProfilePage extends Component {
 
   render() {
     return (
-      <div>``
-        <h1>first name {this.props.firstName}</h1>
-        <h1>last name {this.props.lastName}</h1>
-        <h1>weight {this.props.weight}</h1>
-        <h1>weight goal {this.props.weightGoal}</h1>
-        <h1>age {this.props.age}</h1>
-        <h1>birthday {this.props.birthday}</h1>
+      <div className="profile-page-view">
+        <h2>Name: {this.props.firstName} {this.props.lastName}</h2>
+        {/* <h1>first name {this.props.firstName}</h1>
+        <h1>last name {this.props.lastName}</h1> */}
+        <p>Weight {this.props.weight}</p>
+        <p>Weight Goal: {this.props.weightGoal}</p>
+        <p>Age: {this.props.age}</p>
+        <p>Birthday {this.props.birthday}</p>
       </div>
     );
   }

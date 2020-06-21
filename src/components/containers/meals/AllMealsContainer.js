@@ -32,6 +32,7 @@ class AllMealsContainer extends Component {
           }}
           onTermChange={debounce((searchTerm) => this.handleTermChange(searchTerm), 1000)}
         />
+        <br></br>
         <AllMealsView meals={this.props.allMeals} />
       </div>
     );

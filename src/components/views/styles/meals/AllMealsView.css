@@ -10,23 +10,29 @@
   width: 100%;
 }
 
-.meal-card {
+.meal-card-view {
   column-gap: 1.5em;
   padding: 10px;
   display: inline-block;
   width: 50%;
   word-break: break-word;
+  text-decoration: none;
 }
 
-.meal-card h2 {
-  font-size: 2vw;
+a.meal-link {
+  text-decoration: none;
 }
+
+.meal-card-view h2 {
+  font-size: 3vw;
+  color: #145374;
+  text-decoration: none;
+}
+
 .all-meals{
-  background-color: orange;
+  background-color: #ddf3f5 ;
 }
 
-
-  
 /* .meal-container {
   column-gap: 1.5em;
   font-size: .85em;
@@ -34,11 +40,11 @@
   padding: 0;
 } */
   
-/* input {
+input {
   display: block;
-  font-size: 22px;
   height: 50px;
-  margin: 0 auto;
-  text-align: center;
+  margin: 5px;
+  text-align: left;
   width: 50%;
-} */
+  padding-left: 10px;
+}
