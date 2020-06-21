@@ -9,3 +9,9 @@
 .home h1 {
   font-weight: bold;
 }
+.jumbotron{
+  height:50vh;
+  background:url(../../../images/cooking.jpg);
+  background-size:cover;
+  font-family: 'Carter One', cursive;
+}
