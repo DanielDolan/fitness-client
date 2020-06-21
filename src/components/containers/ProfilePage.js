@@ -43,10 +43,10 @@ class ProfilePage extends Component {
 
 
          {/* <h1>birthday {this.props.birthday}</h1> */}
-          <h1>Saved Meals</h1>      {/* hugging left side */}
+          <h1>Saved Meals(Coming Soon!)</h1>      {/* hugging left side */}
 
 
-          <h1>Saved Workouts</h1> {/* hugging right side */}
+          <h1>Saved Workouts(Coming Soon!)</h1> {/* hugging right side */}
 
           
       </div>

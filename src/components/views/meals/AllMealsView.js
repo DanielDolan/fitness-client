@@ -20,8 +20,8 @@ const AllMealsView = (props) => {
           }} alt={meal.label} />
 
           <br></br>
-          <button>Add</button> {}
-          <button>Delete</button>
+          <button>Add(Coming Soon!)</button> {}
+          <button>Delete(Coming Soon!)</button>
         </div>)}
     </div>
   )

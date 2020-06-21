@@ -19,8 +19,8 @@ const WorkoutView = (props) => {
       <p>Description: {props.workout.description}</p>
       <p>Recommended Reps: {props.workout.recomendedReps}</p>
 
-      {/* add to profile button */}
-      {/* remove from profile button */}
+      <button>Add(Coming Soon!)</button> {}
+      <button>Delete(Coming Soon!)</button>
 
     </div>
   );

@@ -10,8 +10,8 @@ const MealView = (props) => {
       <p>Recipe: {props.meal.url}</p>
       <p>Proteins: {props.meal.totalNutrients.PROCNT.quantity}</p>
 
-      <button>Add</button>
-      <button>Delete</button>
+      <button>Add(Coming Soon!)</button>
+      <button>Delete(Coming Soon!)</button>
 
     </div>
   );
