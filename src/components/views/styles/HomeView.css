@@ -9,9 +9,14 @@
 .home h1 {
   font-weight: bold;
 }
+
 .jumbotron{
-  height:50vh;
-  background:url(../../../images/cooking.jpg);
-  background-size:cover;
+  /* background-image:50vh; */
+  background:url(../../../images/cooking-0.png);
+  /* background-size: cover; */
+  /* background-size: 100% 100%; */
+
   font-family: 'Carter One', cursive;
+  min-height: 438px;
+  min-width: 718px;
 }

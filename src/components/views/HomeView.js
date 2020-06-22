@@ -5,9 +5,9 @@ const HomeView = props => {
   return (
 
     <div className="home">
-      <div class=" jumbotron jumbotron-fluid d-flex flex-column mb-0 align-items-center justify-content-left">
-            <h1 class=" text-left m-4 display-4 bg-success text-white d-inline-block font-weight-normal  p-3 animated pulse infinite delay-5s">Conditioning and Cooking</h1>
-          </div>
+      <div className="jumbotron">
+        <h1 className="text-left m-4 display-4 bg-dark text-white d-inline-block font-weight-normal  p-3 animated pulse infinite delay-5s">Conditioning and Cooking</h1>
+      </div>
       <h4>An online planner to keep track of personal Fitness and Diet</h4>
       <br></br>
       <h5>Rated 10/10 by over 3 people!</h5>
