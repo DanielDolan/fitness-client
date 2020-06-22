@@ -3,40 +3,97 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchAllWorkoutsThunk } from '../../../thunks';
 import { AllWorkoutsView } from '../../views';
-import SearchBar from "./SearchBar"
-import { debounce } from "lodash";
-
-
+import { Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 // Smart container;
 class AllWorkoutsContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      dropdownOpen: false,
+      filterBy: "",
+    };
+  }
+
   componentDidMount() {
-    console.log(this.props);
+    // console.log(this.props);
     this.props.fetchAllWorkouts();
   }
 
-  handleTermChange = (searchTerm) => {
-    this.props.fetchAllWorkouts(searchTerm)
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
+
+  setFilter = (muscleGroup) => {
+    this.setState({
+      filterBy: muscleGroup
+    })
   }
 
   render() {
+
+    function filterByValue(array, string) {
+      return array.filter(o => {
+        return Object.keys(o).some(k => {
+          if (typeof o[k] === 'string')
+            return o[k].toLowerCase().includes(string.toLowerCase());
+        });
+      });
+    }
+
+    // const arr = this.props.allWorkouts
+    const chest = filterByValue(this.props.allWorkouts, "Chest");
+    const abs = filterByValue(this.props.allWorkouts, "Abs");
+    const arms = filterByValue(this.props.allWorkouts, "Arms");
+    const back = filterByValue(this.props.allWorkouts, "Back");
+
+    const group = this.state.filterBy
+    let choice
+    if (group === "all") {
+      choice = <AllWorkoutsView allWorkouts={this.props.allWorkouts} />
+    }
+    if (group === "chest") {
+      choice = <AllWorkoutsView allWorkouts={chest} />
+    }
+    if (group === "abs") {
+      choice = <AllWorkoutsView allWorkouts={abs} />
+    }
+    if (group === "arms") {
+      choice = <AllWorkoutsView allWorkouts={arms} />
+    }
+    if (group === "back") {
+      choice = <AllWorkoutsView allWorkouts={back} />
+    }
+
+
     return (
-      // <div>
-        <div className="all-workouts-container">
-          {/* <h2>Workout Search</h2>
+      <div className="all-workouts-container">
+        <div className="dropdown">
+          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <Button onClick={() => this.setFilter("all")}>View All</Button>  {'  '}
+            <DropdownToggle caret>Filter by Workout</DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem onClick={() => this.setFilter("chest")}>Chest</DropdownItem>
+              <DropdownItem onClick={() => this.setFilter("abs")}>Abs</DropdownItem>
+              <DropdownItem onClick={() => this.setFilter("arms")}>Arms</DropdownItem>
+              <DropdownItem onClick={() => this.setFilter("back")}>Back</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </div>
-        <SearchBar
-          style={{
-            fontSize: 24,
-            width: "40%",
-            paddingTop: 8,
-            paddingBottom: 8,
-            paddingLeft: 10,
-          }}
-          onTermChange={debounce((searchTerm) => this.handleTermChange(searchTerm), 1000)}
-        /> */}
-    <AllWorkoutsView allWorkouts={this.props.allWorkouts} />
-    </div>
+        <br></br>
+
+        {choice}
+        {/* <AllWorkoutsView allWorkouts={arms} />
+        {console.log(arms)} */}
+
+
+
+
+      </div>
     )
   }
 }

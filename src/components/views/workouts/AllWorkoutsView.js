@@ -8,14 +8,14 @@ const AllWorkoutsView = props => {
   if (!props.allWorkouts.length) {
     return <div className="all-workouts">There are no workouts</div>;
   }
-  console.log(props.allWorkouts)
+  // console.log(props.allWorkouts)
   
   return (
     <>
 
     <div className="all-workouts">
       {props.allWorkouts.map(workout => (
-        <div class="workout-card-view" key={workout.id}>
+        <div className="workout-card-view" key={workout.id}>
           <Link to={`/workouts/${workout.id}`}>
             <h2>{workout.name}</h2>
           </Link>
