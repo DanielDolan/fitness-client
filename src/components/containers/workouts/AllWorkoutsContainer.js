@@ -18,7 +18,6 @@ class AllWorkoutsContainer extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props);
     this.props.fetchAllWorkouts();
   }
 
@@ -40,16 +39,15 @@ class AllWorkoutsContainer extends Component {
       return array.filter(o => {
         return Object.keys(o).some(k => {
           if (typeof o[k] === 'string')
-            return o[k].toLowerCase().includes(string.toLowerCase());
+            return o[k].includes(string);
         });
       });
     }
 
-    // const arr = this.props.allWorkouts
-    const chest = filterByValue(this.props.allWorkouts, "Chest");
-    const abs = filterByValue(this.props.allWorkouts, "Abs");
-    const arms = filterByValue(this.props.allWorkouts, "Arms");
-    const back = filterByValue(this.props.allWorkouts, "Back");
+    const chest = filterByValue(this.props.allWorkouts, "Chest")
+    const abs = filterByValue(this.props.allWorkouts, "Abs")
+    const arms = filterByValue(this.props.allWorkouts, "Arms")
+    const back = filterByValue(this.props.allWorkouts, "Back")
 
     const group = this.state.filterBy
     let choice
@@ -69,12 +67,11 @@ class AllWorkoutsContainer extends Component {
       choice = <AllWorkoutsView allWorkouts={back} />
     }
 
-
     return (
       <div className="all-workouts-container">
         <div className="dropdown">
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <Button onClick={() => this.setFilter("all")}>View All</Button>  {'  '}
+            <Button onClick={() => this.setFilter("all")}>View All</Button>  {'  '}
             <DropdownToggle caret>Filter by Workout</DropdownToggle>
             <DropdownMenu>
               <DropdownItem onClick={() => this.setFilter("chest")}>Chest</DropdownItem>
@@ -85,14 +82,7 @@ class AllWorkoutsContainer extends Component {
           </Dropdown>
         </div>
         <br></br>
-
         {choice}
-        {/* <AllWorkoutsView allWorkouts={arms} />
-        {console.log(arms)} */}
-
-
-
-
       </div>
     )
   }
