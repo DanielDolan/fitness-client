@@ -7,8 +7,6 @@ const NavBarView = (props) => {
     firstName,
     isLoggedIn } = props;
 
-  console.log(isLoggedIn)
-  console.log(firstName)
   const displayLogin = (
     <>
       <Link to="/login" className="nav-link-user">Sign in</Link>

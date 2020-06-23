@@ -14,7 +14,7 @@ const WorkoutView = (props) => {
       }} alt={props.name}
       />
       <br></br>
-      <h1>{props.workout.name}</h1>
+      <h1>{props.workout.displayName}</h1>
       <p>Targeted Muscle Group: {props.workout.muscleGroup}</p>
       <p>Description: {props.workout.description}</p>
       <p>Recommended Reps: {props.workout.recomendedReps}</p>

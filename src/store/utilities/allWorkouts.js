@@ -41,6 +41,8 @@ export const fetchAllWorkoutsThunk = (searchTerm) => dispatch => {
   // return dispatch(fetchAllWorkouts(allWorkouts));
 }
 
+
+
 // REDUCER;
 const reducer = (state = [], action) => {
   switch (action.type) {
