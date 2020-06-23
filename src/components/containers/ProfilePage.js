@@ -16,6 +16,7 @@ class ProfilePage extends Component {
       firstName: "",
       weight: 0,
       weightGoal: 0,
+      exerciseName: [],
       height: "",
       age: 0,
       birthday: "",
@@ -33,6 +34,7 @@ class ProfilePage extends Component {
     // console.log(this.props.me)
     if(prevProps.data !== this.props.data )
       this.props.getAllExercise(this.props.userID);
+      console.log("")
   }
 
 
@@ -50,18 +52,17 @@ class ProfilePage extends Component {
 
 
          {/* <h1>birthday {this.props.birthday}</h1> */}
-          <h3>Saved Meals</h3>      {/* hugging left side */}
+          {/* <h3>Saved Meals</h3>      hugging left side */}
 
 
           <h3>Saved Workouts</h3> {/* hugging right side */}
-          {/* <p>{this.props.exerciseName}</p> */}
           {this.props.exerciseName.map(workout => (
-        <div className="workout-card-view" key={workout.id}>
-          <Link to={`/workouts/${workout.id}`}>
-            <h2>{workout.displayName}</h2>
-          </Link>
-        </div>
-      ))}
+            <div className="workout-card-view" key={workout.id}>
+              <Link to={`/workouts/${workout.id}`}>
+                <h2>{workout.displayName}</h2>
+              </Link>
+            </div>
+          ))}
           
       </div>
     );
@@ -108,7 +109,7 @@ ProfilePage.propTypes = {
 };
 
 const mapUser = state => {
-   console.log("the state of the user",state)
+   console.log("the state of the user",state.addedExercise)
   return {
     name: "user",
     displayName: "User",

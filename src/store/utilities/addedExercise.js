@@ -22,12 +22,13 @@ const getExercise = userOfExercise => {
 // THUNK CREATORS;
 export const getAllExercise= (userID) => dispatch => {
   console.log("all workouts user id: ", userID)
+  if(userID >= 0){
   return axios
     .get(`api/user/${userID}/exercise`)
     .then(res => res.data)
     .then(userOfExercise => dispatch(getExercise(userOfExercise)))
     .catch(err => console.log(err))
-
+  }
   // tests
   // return dispatch(fetchAllWorkouts(allWorkouts));
 }
