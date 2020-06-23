@@ -7,7 +7,8 @@ import "../styles/AllWorkoutsView.css";
 const AllWorkoutsView = props => {
   const {
     allWorkouts,
-    handleAddExercise } = props;
+    handleAddExercise,
+    handleRemoveExercise } = props;
   if (!props.allWorkouts.length) {
     return <div className="all-workouts">There are no workouts</div>;
   }
@@ -36,7 +37,7 @@ const AllWorkoutsView = props => {
           <p>{workout.description}</p>
 
           <button type="submit" onClick={handleAddExercise(workout.id)} name="addExercise">Add</button> {}
-          <button>Delete</button>
+          <button type="submit" onClick={handleRemoveExercise(workout.id)} name="removeExercise">Delete</button>
         </div>
       ))}
     </div>

@@ -3,13 +3,19 @@ import axios from 'axios';
 // ACTION TYPES;
 const ADD_EXERCISE = "ADD_EXERCISE";
 const GET_EXERCISE = "GET_EXERCISE";
+const REMOVE_EXERCISE = "REMOVE_EXERCISE";
 
 // ACTION CREATORS;
-const add = user => {
+const add = () => {
   return {
-    type: ADD_EXERCISE,
-    payload: user
+    type: ADD_EXERCISE
   }
+}
+
+const remove = () =>{
+    return {
+    type: REMOVE_EXERCISE
+    }
 }
 
 const getExercise = userOfExercise => {
@@ -23,11 +29,11 @@ const getExercise = userOfExercise => {
 export const getAllExercise= (userID) => dispatch => {
   console.log("all workouts user id: ", userID)
   if(userID >= 0){
-  return axios
-    .get(`api/user/${userID}/exercise`)
-    .then(res => res.data)
-    .then(userOfExercise => dispatch(getExercise(userOfExercise)))
-    .catch(err => console.log(err))
+    return axios
+        .get(`api/user/${userID}/exercise`)
+        .then(res => res.data)
+        .then(userOfExercise => dispatch(getExercise(userOfExercise)))
+        .catch(err => console.log(err))
   }
   // tests
   // return dispatch(fetchAllWorkouts(allWorkouts));
@@ -48,7 +54,8 @@ export const addExercise = (userID, exerciseID) => async dispatch => {
 
 export const removeExercise = (userID, exerciseID) => async dispatch => {
   try {
-    const res = await axios.delete(`http://localhost:3001/api/user/removeExercise`, {userID, exerciseID},{ withCredentials: true });
+    const res = await axios.post(`http://localhost:3001/api/user/removeExercise`, {userID, exerciseID},{ withCredentials: true });
+    return dispatch(remove(res.data));
   }
   catch (err) {
     console.log(err)

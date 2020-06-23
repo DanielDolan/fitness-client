@@ -23,7 +23,8 @@ class AllWorkoutsContainer extends Component {
   componentDidMount() {
     this.props.fetchAllWorkouts();
     this.props.me();
-    this.props.addExercise();
+    // this.props.addExercise();
+    // this.props.removeExercise();
   }
 
   toggle() {
@@ -40,10 +41,16 @@ class AllWorkoutsContainer extends Component {
 
   handleAddExercise = currExerciseID => event => {
     event.preventDefault();
+    this.setState({exerciseID: currExerciseID});
+    this.props.addExercise(this.props.userID,currExerciseID);
+  };
+
+  handleRemoveExercise = currExerciseID => event => {
+    event.preventDefault();
     console.log("user id is ", this.props.userID);
     console.log("exercise id is ", currExerciseID);
     this.setState({exerciseID: currExerciseID});
-    this.props.addExercise(this.props.userID,currExerciseID);
+    this.props.removeExercise(this.props.userID,currExerciseID);
   };
 
   render() {
@@ -65,19 +72,29 @@ class AllWorkoutsContainer extends Component {
     const group = this.state.filterBy
     let choice
     if (group === "all") {
-      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise} allWorkouts={this.props.allWorkouts} />
+      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise} 
+                  handleRemoveExercise={this.handleRemoveExercise} 
+                  allWorkouts={this.props.allWorkouts} />
     }
     if (group === "chest") {
-      choice = <AllWorkoutsView  handleAddExercise={this.handleAddExercise} allWorkouts={chest} />
+      choice = <AllWorkoutsView  handleAddExercise={this.handleAddExercise}
+        handleRemoveExercise={this.handleRemoveExercise}
+        allWorkouts={chest} />
     }
     if (group === "abs") {
-      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise} allWorkouts={abs} />
+      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise}
+        handleRemoveExercise={this.handleRemoveExercise}
+       allWorkouts={abs} />
     }
     if (group === "arms") {
-      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise} allWorkouts={arms} />
+      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise}
+        handleRemoveExercise={this.handleRemoveExercise}
+        allWorkouts={arms} />
     }
     if (group === "back") {
-      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise} allWorkouts={back} />
+      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise}
+        handleRemoveExercise={this.handleRemoveExercise}
+       allWorkouts={back} />
     }
 
     return (
@@ -118,7 +135,8 @@ const mapDispatch = dispatch => {
   return {
     fetchAllWorkouts: () => dispatch(fetchAllWorkoutsThunk()),
     me: () => dispatch(me()),
-    addExercise: (userID, exerciseID) => dispatch(addExercise(userID, exerciseID))
+    addExercise: (userID, exerciseID) => dispatch(addExercise(userID, exerciseID)),
+    removeExercise: (userID, exerciseID) => dispatch(removeExercise(userID, exerciseID))
   }
 }
 
