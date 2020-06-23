@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { me, getAllExercise } from "../../thunks";
+import { me, getAllExercise, removeExercise } from "../../thunks";
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom'
 import "../views/styles/ProfilePageView.css"
@@ -23,6 +23,8 @@ class ProfilePage extends Component {
       // userImage: Image,
       rediretLogin: false,
       isLoggedIn: false,
+      exerciseID: "",
+      redirectToProfile: false
     }
   }
   componentDidMount() {
@@ -37,10 +39,18 @@ class ProfilePage extends Component {
       console.log("")
   }
 
-
+  handleRemoveExercise = currExerciseID => event => {
+    event.preventDefault();
+    console.log("user id is ", this.props.userID);
+    console.log("exercise id is ", currExerciseID);
+    this.setState({exerciseID: currExerciseID, redirectToProfile: true});
+    this.props.removeExercise(this.props.userID,currExerciseID);
+  };
 
   render() {
-
+    if (this.state.redirectToProfile) {
+      return (<Redirect to="/workouts"/>)
+    }
     const displayWhenLogIn = (
       <div>
           <h1>Welcome, {this.props.firstName}!</h1>
@@ -61,6 +71,7 @@ class ProfilePage extends Component {
               <Link to={`/workouts/${workout.id}`}>
                 <h2>{workout.displayName}</h2>
               </Link>
+              {/* <button type="submit" onClick={this.handleRemoveExercise(workout.id)} name="removeExercise">Delete</button> */}
             </div>
           ))}
           
@@ -131,7 +142,8 @@ const mapUser = state => {
 const mapDispatchUser = dispatch => {
   return { 
     me: () => dispatch(me()),
-    getAllExercise: (userID) => dispatch(getAllExercise(userID))
+    getAllExercise: (userID) => dispatch(getAllExercise(userID)),
+    removeExercise: (userID, exerciseID) => dispatch(removeExercise(userID, exerciseID))
   }
 };
 
