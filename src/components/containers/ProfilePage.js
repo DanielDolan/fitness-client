@@ -33,10 +33,11 @@ class ProfilePage extends Component {
     console.log("profile",this.props)
   }
   componentDidUpdate(prevProps, prevState) {
-    // console.log(this.props.me)
-    if(prevProps.data !== this.props.data )
+     console.log(this.props)
+    if(prevProps.data !== this.props.data ){
+      this.props.me();
       this.props.getAllExercise(this.props.userID);
-      console.log("")
+    }
   }
 
   handleRemoveExercise = currExerciseID => event => {
@@ -49,7 +50,7 @@ class ProfilePage extends Component {
 
   render() {
     if (this.state.redirectToProfile) {
-      return (<Redirect to="/workouts"/>)
+      return (<Redirect to="/profile"/>)
     }
     const displayWhenLogIn = (
       <div className="profile-page-view">
@@ -79,7 +80,7 @@ class ProfilePage extends Component {
               boxShadow: "0 10px 10px rgba(0,0,0,.7)",
               padding: "5px",
               }} alt={workout.name} />
-              {/* <button type="submit" onClick={this.handleRemoveExercise(workout.id)} name="removeExercise">Delete</button> */}
+              <button type="submit" onClick={this.handleRemoveExercise(workout.id)} name="removeExercise">Delete</button>
             </div>
           ))}
           
