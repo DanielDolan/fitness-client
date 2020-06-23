@@ -1,7 +1,9 @@
 .profile-page-view {
-  background-color: #d0e6f2;
-  padding: 20px;
-  min-height: 500px;
+  column-gap: 1.5em;
+  padding: 30px;
+  display: inline-block;
+  width: 50%;
+  word-break: break-word;
 }
 
 .profile-page-view h2 {
@@ -9,4 +11,7 @@
   color: #145374;
   text-decoration: none;
   padding-bottom: 5px;
+}
+.profile-page-view img {
+  width: 100%;
 }

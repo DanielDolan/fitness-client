@@ -67,10 +67,18 @@ class ProfilePage extends Component {
 
           <h3>Saved Workouts</h3> {/* hugging right side */}
           {this.props.exerciseName.map(workout => (
-            <div className="workout-card-view" key={workout.id}>
+            <div className="profile-page-view" key={workout.id}>
               <Link to={`/workouts/${workout.id}`}>
                 <h2>{workout.displayName}</h2>
               </Link>
+              <img src={workout.imageUrl} style={{
+              width: "300px",
+              height: "300px",
+              objectFit: "fit",
+              display: "block",
+              boxShadow: "0 10px 10px rgba(0,0,0,.7)",
+              padding: "5px",
+              }} alt={workout.name} />
               {/* <button type="submit" onClick={this.handleRemoveExercise(workout.id)} name="removeExercise">Delete</button> */}
             </div>
           ))}

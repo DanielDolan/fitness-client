@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { signup, login, logout } from "../../thunks";
 import { AuthFormView } from "../views";
 import { Redirect } from 'react-router-dom'
+// import "../../views/styles/AllWorkoutsView.css";
 // import  ProfilePage  from './ProfilePage'
 
 // Smart container;
