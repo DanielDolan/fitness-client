@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchAllWorkoutsThunk } from '../../../thunks';
+import { fetchAllWorkoutsThunk,addExercise,removeExercise,me } from '../../../thunks';
 import { AllWorkoutsView } from '../../views';
 import { Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
@@ -14,11 +14,15 @@ class AllWorkoutsContainer extends Component {
     this.state = {
       dropdownOpen: false,
       filterBy: "",
+      userID: "",
+      exerciseID: ""
     };
   }
 
   componentDidMount() {
     this.props.fetchAllWorkouts();
+    this.props.me();
+    this.props.addExercise();
   }
 
   toggle() {
@@ -32,6 +36,14 @@ class AllWorkoutsContainer extends Component {
       filterBy: muscleGroup
     })
   }
+
+  handleAddExercise = currExerciseID => event => {
+    event.preventDefault();
+    console.log("user id is ", this.props.userID);
+    console.log("exercise id is ", currExerciseID);
+    this.setState({exerciseID: currExerciseID});
+    this.props.addExercise(this.props.userID,currExerciseID);
+  };
 
   render() {
 
@@ -52,19 +64,19 @@ class AllWorkoutsContainer extends Component {
     const group = this.state.filterBy
     let choice
     if (group === "all") {
-      choice = <AllWorkoutsView allWorkouts={this.props.allWorkouts} />
+      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise} allWorkouts={this.props.allWorkouts} />
     }
     if (group === "chest") {
-      choice = <AllWorkoutsView allWorkouts={chest} />
+      choice = <AllWorkoutsView  handleAddExercise={this.handleAddExercise} allWorkouts={chest} />
     }
     if (group === "abs") {
-      choice = <AllWorkoutsView allWorkouts={abs} />
+      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise} allWorkouts={abs} />
     }
     if (group === "arms") {
-      choice = <AllWorkoutsView allWorkouts={arms} />
+      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise} allWorkouts={arms} />
     }
     if (group === "back") {
-      choice = <AllWorkoutsView allWorkouts={back} />
+      choice = <AllWorkoutsView handleAddExercise={this.handleAddExercise} allWorkouts={back} />
     }
 
     return (
@@ -91,14 +103,18 @@ class AllWorkoutsContainer extends Component {
 // Map state to props;
 const mapState = state => {
   return {
-    allWorkouts: state.allWorkouts
+    allWorkouts: state.allWorkouts,
+    userID: state.user.id,
+     exerciseID: state.exerciseID
   }
 }
 
 // Map dispatch to props;
 const mapDispatch = dispatch => {
   return {
-    fetchAllWorkouts: () => dispatch(fetchAllWorkoutsThunk())
+    fetchAllWorkouts: () => dispatch(fetchAllWorkoutsThunk()),
+    me: () => dispatch(me()),
+    addExercise: (userID, exerciseID) => dispatch(addExercise(userID, exerciseID))
   }
 }
 

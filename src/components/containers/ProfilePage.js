@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { me } from "../../thunks";
+import { me, getAllExercise } from "../../thunks";
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import "../views/styles/ProfilePageView.css"
 // import AuthFormContainer from './AuthFormContainer'
 
@@ -9,6 +9,7 @@ class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userID: "",
       email: "",
       password: "",
       lastName: "",
@@ -25,7 +26,13 @@ class ProfilePage extends Component {
   }
   componentDidMount() {
     this.props.me();
-    console.log(this.props.firstName);
+    this.props.getAllExercise(this.props.userID);
+    console.log("profile",this.props)
+  }
+  componentDidUpdate(prevProps, prevState) {
+    // console.log(this.props.me)
+    if(prevProps.data !== this.props.data )
+      this.props.getAllExercise(this.props.userID);
   }
 
 
@@ -43,11 +50,18 @@ class ProfilePage extends Component {
 
 
          {/* <h1>birthday {this.props.birthday}</h1> */}
-          <h1>Saved Meals</h1>      {/* hugging left side */}
+          <h3>Saved Meals</h3>      {/* hugging left side */}
 
 
-          <h1>Saved Workouts</h1> {/* hugging right side */}
-
+          <h3>Saved Workouts</h3> {/* hugging right side */}
+          {/* <p>{this.props.exerciseName}</p> */}
+          {this.props.exerciseName.map(workout => (
+        <div className="workout-card-view" key={workout.id}>
+          <Link to={`/workouts/${workout.id}`}>
+            <h2>{workout.displayName}</h2>
+          </Link>
+        </div>
+      ))}
           
       </div>
     );
@@ -94,9 +108,12 @@ ProfilePage.propTypes = {
 };
 
 const mapUser = state => {
+   console.log("the state of the user",state)
   return {
     name: "user",
     displayName: "User",
+    userID: state.user.id,
+    exerciseName: state.addedExercise,
     error: state.user.error,
     firstName: state.user.firstName,
     lastName: state.user.lastName,
@@ -112,7 +129,8 @@ const mapUser = state => {
 // Map login dispatch to props;
 const mapDispatchUser = dispatch => {
   return { 
-    me: () => dispatch(me())
+    me: () => dispatch(me()),
+    getAllExercise: (userID) => dispatch(getAllExercise(userID))
   }
 };
 

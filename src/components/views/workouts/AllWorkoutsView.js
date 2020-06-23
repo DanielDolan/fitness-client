@@ -5,11 +5,14 @@ import "../styles/AllWorkoutsView.css";
 // import { DropdownButton } from 'reactstrap';
 
 const AllWorkoutsView = props => {
+  const {
+    allWorkouts,
+    handleAddExercise } = props;
   if (!props.allWorkouts.length) {
     return <div className="all-workouts">There are no workouts</div>;
   }
   // console.log(props.allWorkouts)
-  
+  console.log("All workout view props: " , handleAddExercise)
   return (
     <>
 
@@ -17,7 +20,7 @@ const AllWorkoutsView = props => {
       {props.allWorkouts.map(workout => (
         <div className="workout-card-view" key={workout.id}>
           <Link to={`/workouts/${workout.id}`}>
-            <h2>{workout.name}</h2>
+            <h2>{workout.displayName}</h2>
           </Link>
           <img src={workout.imageUrl} style={{
           width: "300px",
@@ -32,7 +35,7 @@ const AllWorkoutsView = props => {
           <p>{workout.muscleGroup}</p>
           <p>{workout.description}</p>
 
-          <button>Add</button> {}
+          <button type="submit" onClick={handleAddExercise(workout.id)} name="addExercise">Add</button> {}
           <button>Delete</button>
         </div>
       ))}
