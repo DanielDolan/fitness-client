@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchAllWorkoutsThunk,addExercise,removeExercise,me } from '../../../thunks';
 import { AllWorkoutsView } from '../../views';
 import { Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import "../../views/styles/AllWorkoutsView.css"
 
 // Smart container;
 class AllWorkoutsContainer extends Component {
@@ -42,6 +43,7 @@ class AllWorkoutsContainer extends Component {
     event.preventDefault();
     this.setState({exerciseID: currExerciseID});
     this.props.addExercise(this.props.userID,currExerciseID);
+    alert("Exercise added!")
   };
 
   handleRemoveExercise = currExerciseID => event => {
@@ -50,6 +52,7 @@ class AllWorkoutsContainer extends Component {
     console.log("exercise id is ", currExerciseID);
     this.setState({exerciseID: currExerciseID});
     this.props.removeExercise(this.props.userID,currExerciseID);
+    alert("Exercise removed!")
   };
 
   render() {
@@ -98,6 +101,7 @@ class AllWorkoutsContainer extends Component {
 
     return (
       <div className="all-workouts-container">
+        <h2>Workouts</h2>
         <div className="dropdown">
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <Button onClick={() => this.setFilter("all")}>View All</Button>  {'  '}
@@ -111,7 +115,9 @@ class AllWorkoutsContainer extends Component {
           </Dropdown>
         </div>
         <br></br>
+
         {choice}
+        <div className="all-workouts"></div>
       </div>
     )
   }

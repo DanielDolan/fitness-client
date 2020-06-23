@@ -13,6 +13,7 @@
 
 .all-workouts{
   background-color: #d0e6f2;
+  min-height: 500px;
 }
 
 .workout-card-view {

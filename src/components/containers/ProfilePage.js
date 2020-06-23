@@ -52,7 +52,7 @@ class ProfilePage extends Component {
       return (<Redirect to="/workouts"/>)
     }
     const displayWhenLogIn = (
-      <div>
+      <div className="profile-page-view">
           <h1>Welcome, {this.props.firstName}!</h1>
           {/* <h1>last name {this.props.lastName}</h1> */}
           {/* card of stats hugging the top right */}
@@ -85,10 +85,10 @@ class ProfilePage extends Component {
           
       </div>
     );
-    const displayWhenNeedSignin = (
-      <div>
-        <h1>Please sign in first</h1>
 
+    const displayWhenNeedSignin = (
+      <div className="profile-page-view">
+        <h1>Please sign in first</h1>
       </div>
     )
 

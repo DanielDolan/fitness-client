@@ -1,9 +1,10 @@
 .profile-page-view {
-  column-gap: 1.5em;
-  padding: 30px;
+  column-gap: 1.9em;
+  padding: 20px;
   display: inline-block;
-  width: 50%;
+  width: 51%;
   word-break: break-word;
+  min-height: 500px;
 }
 
 .profile-page-view h2 {
