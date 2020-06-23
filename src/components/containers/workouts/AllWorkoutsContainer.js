@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchAllWorkoutsThunk,addExercise,removeExercise,me } from '../../../thunks';
 import { AllWorkoutsView } from '../../views';
 import { Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import "../../views/styles/AllWorkoutsView.css"
 
 // Smart container;
 class AllWorkoutsContainer extends Component {
@@ -81,6 +82,7 @@ class AllWorkoutsContainer extends Component {
 
     return (
       <div className="all-workouts-container">
+        <h2>Workouts</h2>
         <div className="dropdown">
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <Button onClick={() => this.setFilter("all")}>View All</Button>  {'  '}
@@ -94,7 +96,9 @@ class AllWorkoutsContainer extends Component {
           </Dropdown>
         </div>
         <br></br>
+
         {choice}
+        <div className="all-workouts"></div>
       </div>
     )
   }
