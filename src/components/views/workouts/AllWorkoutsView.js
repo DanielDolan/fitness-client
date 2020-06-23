@@ -36,7 +36,7 @@ const AllWorkoutsView = props => {
           <p>{workout.muscleGroup}</p>
           <p>{workout.description}</p>
 
-          <button type="submit" onClick={handleAddExercise(workout.id)} name="addExercise">Add</button> {}
+          <button type="submit" onClick={handleAddExercise(workout.id) } name="addExercise">Add</button> {}
           <button type="submit" onClick={handleRemoveExercise(workout.id)} name="removeExercise">Delete</button>
         </div>
       ))}

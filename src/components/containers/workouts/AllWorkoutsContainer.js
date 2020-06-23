@@ -43,6 +43,7 @@ class AllWorkoutsContainer extends Component {
     event.preventDefault();
     this.setState({exerciseID: currExerciseID});
     this.props.addExercise(this.props.userID,currExerciseID);
+    alert("Exercise added!")
   };
 
   handleRemoveExercise = currExerciseID => event => {
@@ -51,6 +52,7 @@ class AllWorkoutsContainer extends Component {
     console.log("exercise id is ", currExerciseID);
     this.setState({exerciseID: currExerciseID});
     this.props.removeExercise(this.props.userID,currExerciseID);
+    alert("Exercise removed!")
   };
 
   render() {
